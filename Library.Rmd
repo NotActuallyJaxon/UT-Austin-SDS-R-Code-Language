@@ -11,6 +11,7 @@ output:
 ```{r global_options, echo=FALSE}
 knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.opts=list(width.cutoff=60))
 ```
+
 ```{css, echo=FALSE}
 .watch-out {
   background-color: black;
@@ -20,91 +21,141 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
   text-align: left;
   }
 ```
-***
+#Climate_General = na_replace(Climate_General, 0) #Replace all NAs with 0
+#unique()
+------------------------------------------------------------------------
+
 # **Use word search shortcuts like CTRL+G to find specific functions faster**
-***
-# <span style="color:#FF3333;">**Packages:**</span>
+
+------------------------------------------------------------------------
+
+# [**Packages:**]{style="color:#FF3333;"}
+
 ## rvest (Used for reading and importing html)
+
 [Cheat Sheet](https://cran.r-project.org/web/packages/rvest/rvest.pdf)
+
 ```{r class.source="watch-out"}
 #install.packages("rvest")
 #library(rvest)
 ```
+
 ## sas7bdat (Reads sas7bdat files)
+
 [Cheat Sheet](https://cran.r-project.org/web/packages/sas7bdat/sas7bdat.pdf)
+
 ```{r class.source="watch-out"}
 #install.packages("sas7bdat")
 #library(sas7bdat)
 ```
+
 ## stringr (Manipulate and navigate strings)
+
 [Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/main/strings.pdf)
+
 ```{r class.source="watch-out"}
 #install.packages("stringr")
 #library(stringr)
 ```
+
 ## lubridate (Dates and times)
+
 [Cheat Sheet](https://rawgit.com/rstudio/cheatsheets/main/lubridate.pdf)
+
 ```{r class.source="watch-out"}
 #install.packages("lubridate")
 #library(lubridate)
 ```
+
 ## nycflights13 (dataset for New York City departing flights)
+
 [Cheat Sheet](https://cran.r-project.org/web/packages/nycflights13/nycflights13.pdf)
+
 ```{r class.source="watch-out"}
 #install.packages("nycflights13")
 #library(nycflights13)
 ```
+
 ## rmarkdown (Rmarkdown files)
+
 [Cheat Sheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/rmarkdown-cheatsheet-2.0.pdf)
+
 ```{r class.source="watch-out"}
 #install.packages("rmarkdown")
 #library(rmarkdown)
 ```
+
 ## kableExtra (Better tables)
+
 [Cheat Sheet](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html)
+
 ```{r class.source="watch-out"}
 #install.packages("kableExtra")
 #library(kableExtra)
 ```
+
 ## ggplot (Better graphs)
+
 [Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf)
+
 ```{r class.source="watch-out"}
 #install.packages("ggplot2")
 #library(ggplot2) 
 ```
+
 ## tidyverse (Includes a variety of packages containing useful functions)
+
 [Cheat Sheet](https://res.cloudinary.com/dyd911kmh/image/upload/v1676302697/Marketing/Blog/Tidyverse_Cheat_Sheet.pdf)
+
 ```{r class.source="watch-out"}
 #install.packages("tidyverse")
 #library(tidyverse)
 ```
-***
-# <span style="color:#FF3333;">**Environment Management:**</span>
-## Lists objects currently in working memory: 
+
+------------------------------------------------------------------------
+
+# [**Environment Management:**]{style="color:#FF3333;"}
+
+## Lists objects currently in working memory:
+
 ```{r class.source="watch-out"}
 #ls()
 ```
-## Removes a specified object from environment: 
+
+## Removes a specified object from environment:
+
 ```{r class.source="watch-out"}
 #rm(list='x1') 
 ```
-## Will clear entire environment: 
+
+## Will clear entire environment:
+
 ```{r class.source="watch-out"}
 #rm(list=ls())
 ```
-## Session controls 
+
+## Session controls
+
 ```{r class.source="watch-out"}
 #setwd("file address")
 ```
-***
-# <span style="color:#FF3333;">**Options And Functions:**</span>
+
+------------------------------------------------------------------------
+
+# [**Options And Functions:**]{style="color:#FF3333;"}
+
 ## Scientific notaton removed
+
 ```{r class.source="watch-out"}
 #options(scipen=999)
 ```
-***
-# <span style="color:#FF0066;">**Math Operations:**</span>
+
+------------------------------------------------------------------------
+
+# [**Math Operations:**]{style="color:#FF0066;"}
+
 ## Basic math
+
 ```{r class.source="watch-out"}
 #1+2
 #3-1
@@ -119,7 +170,9 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #sin(pi/2)
 #num1%%num2 remainder division
 ```
+
 ## Dataset Math
+
 ```{r class.source="watch-out"}
 #max(dataset) 
 #min(dataset) 
@@ -132,37 +185,53 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #mean(dataset)
 #median(dataset)
 ```
+
 ## Proportions And Correlation
+
 ```{r class.source="watch-out"}
 #prop.table(table(med$Diabetic))
 #cor(data$variable1, data$variable2)
 ```
-***
-# <span style="color:#FF0066;">**Built In Functions:**</span>
+
+------------------------------------------------------------------------
+
+# [**Built In Functions:**]{style="color:#FF0066;"}
+
 ## Rolling dice or flipping a coin
+
 ```{r class.source="watch-out"}
 #flip = sample(c("heads","tails"),1) #Coin flip
 #roll = sample(C(1:6),1) #Six sided die
 ```
-***
-# <span style="color:#FF0066;">**Creating Variables:**</span>
+
+------------------------------------------------------------------------
+
+# [**Creating Variables:**]{style="color:#FF0066;"}
+
 ## Assigning variables
+
 ```{r class.source="watch-out"}
 #variableName = int/char/vector/data
 ```
-## Assigning values 
+
+## Assigning values
+
 ```{r class.source="watch-out"}
 #val1 <- 2
 #val1/3
 ```
-## Numeric vectors 
+
+## Numeric vectors
+
 ```{r class.source="watch-out"}
 #x1 <- c(1,2,4,6) 
 #x1[2] 
 #x2 <- c(x1,x1) 
 #x2[1]
 ```
-## Sequences and reps 
+
+## Sequences and reps
+
 ```{r class.source="watch-out"}
 #x3 <- 1:10 
 #x3
@@ -171,71 +240,107 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #x5 <-rep(-1,10) 
 #x5
 ```
-## Character vectors 
+
+## Character vectors
+
 ```{r class.source="watch-out"}
 #y1 <- c('blue', 'cat', 'black') 
 #y1[2]
 ```
-## Logical vectors 
+
+## Logical vectors
+
 ```{r class.source="watch-out"}
 #z1 <- c(TRUE, )
 ```
-***
-# <span style="color:#9966FF;">**Importing And Exporting:**</span>
-## import/read in a data set 
+
+------------------------------------------------------------------------
+
+# [**Importing And Exporting:**]{style="color:#9966FF;"}
+
+## import/read in a data set
+
 ```{r class.source="watch-out"}
 #films <- read.csv('films.csv')
 ```
-## Exporting data 
+
+## Exporting data
+
 ```{r class.source="watch-out"}
 #write.csv(Rmovies, file = 'R_Films.csv')
 ```
-***
-# <span style="color:#9966FF;">**Navigating Datasets:**</span>
-## Navigating data 
+
+------------------------------------------------------------------------
+
+# [**Navigating Datasets:**]{style="color:#9966FF;"}
+
+## Navigating data
+
 ```{r class.source="watch-out"}
 #index <- which(data$variable == whatIsBeingLookedFor)
 ```
-## Indexing [row,column] #specify a column by using $column
+
+## Indexing [row,column] #specify a column by using \$column
+
 ```{r class.source="watch-out"}
 #films$Rating[4] 
 #films[20,4] 
 #films[20,] #return information in entire row
 ```
-## Returns Boolean value for each row tested 
+
+## Returns Boolean value for each row tested
+
 ```{r class.source="watch-out"}
 #films$Rating == 'R'
 ```
-## Returns information from each row thats true 
+
+## Returns information from each row thats true
+
 ```{r class.source="watch-out"}
 #films[films$Rating == 'R',]
 ```
-***
-# <span style="color:#9966FF;">**Subset, Manipulate Data:**</span>
-## Creating Subset 
+
+------------------------------------------------------------------------
+
+# [**Subset, Manipulate Data:**]{style="color:#9966FF;"}
+
+## Creating Subset
+
 ```{r class.source="watch-out"}
 #Rmovies <- films[films$Rating == 'R',]
 ```
-## Creating New Variable In This Dataset 
+
+## Creating New Variable In This Dataset
+
 ```{r class.source="watch-out"}
 #med <- read.csv('medicaldata.csv') med$overweight <- 1*(med$BMI>=25)
 ```
+
 ## Combining Colums
+
 ```{r class.source="watch-out"}
 #cbind()
 ```
+
 ## Naming columns
+
 ```{r class.source="watch-out"}
 #colnames(dataset)[columnIndex]="newHeader"
 ```
+
 ## Rearranging/sorting data
+
 ```{r class.source="watch-out"}
 #arrange(dataset, (ColumnToArrangeBy)) will sort alphabetically/numerically
 #Make -(ColumnToArrangeBy) to order descending
 ```
-***
-# <span style="color:#9966FF;">**Reshaping Data:**</span>
+
+------------------------------------------------------------------------
+
+# [**Reshaping Data:**]{style="color:#9966FF;"}
+
 ## Lengthening Data
+
 ```{r class.source="watch-out"}
 #dataset = pivot_longer(dataset, cols="",names_to="", values_to="")
 
@@ -247,7 +352,9 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 #values_drop_na=True, gets rid of NA values since they don't represent unknown observations.
 ```
+
 ## Widening Data
+
 ```{R class.source="watch-out"}
 #dataset = pivot_wider(dataset, id_cols="",names_from=type1,values_from=type2)
 
@@ -259,32 +366,60 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 #use vectors c("","","") to uniquely identify if necessary
 ```
+
 ## Turning categories into numbers
+
 ```{r class.source="watch-out"}
 #dataset = mutate(dataset, category=parse_nunber(category))
 ```
+
 ## Useful code while reshaping data
+
 ```{r class.source="watch-out"}
 #starts_with("") selects items that start with whats indicated
 
 #values_drop_na=TRUE drops items that are NA and so no longer represents an empty observation
 ```
-***
-# <span style="color:#9966FF;">**Managing NA:**</span>
+
+------------------------------------------------------------------------
+
+# [**Managing NA:**]{style="color:#9966FF;"}
+
 ## NA Shenanigans
+
 ```{r class.source="watch-out"}
 #is.na() #returns true if its NA
 #na.rm=TRUE #ignors NA values (useful for graphing)
 #na.omit() #removes any rows that contain NAs
 #use="complete.obs" #ignors NA values (useful for calculations)
 ```
+
+------------------------------------------------------------------------
+
+# [**Functions:**]{style="color:#9966FF;"}
+
+```{r class.source="watch-out"}
+#Function_Name = function(variable=Default, variable, variable){
+#  print()
+#  return()
+#  break() #would break out of the loop
+#}
+
+#Function_Name(variable, variable, variable) #Calling the function
+```
+
 ***
-# <span style="color:#9966FF;">**Strings:**</span>
+
+# [**Strings:**]{style="color:#9966FF;"}
+
 ## Converting to UTF-8 Strings (useful for scrapes)
+
 ```{r class.source="watch-out"}
 #Variable/Observation = iconv(Variable/Observation, from="ISO-8859-1", to="UTF-8") #Converts to usable string.
 ```
+
 ## Navigating Strings
+
 ```{r class.source="watch-out"}
 #'' and "" can define strings though "" works with some complex characters when '' does not.
 
@@ -316,22 +451,31 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 #str_subset(x, "(fox|bear)") #Returns elements of x with either "fox" or "bear"
 ```
+
 ## Manipulating Strings
+
 ```{r class.source="watch-out"}
 #str_to_upper(string) #whole string uppercase
 #str_to_lower(string) #whole string lowercase
+
+#paste("String", "String", numeric, ...) #Combines the items
+#paste(Split_Lyrics_Data, collapse=" ") #Convert list data into large string
 
 #str_extract(x, "character/text") #Returns just the character/text contained in x (if it doesn't exist it returns NA)
 
 #str_replace_all(x, "character/text1", "character/text2") #Returns elements of x with character/text1 replaced with character/text2
 
-#str_split(x, " ", simplify=TRUE) #Returns a dataset with each element of x in a separate column and the text separated by " " being put into rows of that column.
+#str_split(x, " ", simplify=TRUE) #Returns a dataset with each element of x in a separate column and the text separated by " " being put into rows of that column. (" " can be replaced with any character like "/" to split dates Y/M/D)
 
 #str_sub_vec = as.vector(x) #Returns a vector of x
 ```
-***
-# <span style="color:#9966FF;">**Loops:**</span>
+
+------------------------------------------------------------------------
+
+# [**Loops:**]{style="color:#9966FF;"}
+
 ## Loop Basics
+
 ```{r class.source="watch-out"}
 #for (i in 1:n){
 #  print('hellow world!')
@@ -340,7 +484,9 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #Represents index but it doesn't need to be i
 #Could use (i:n) or (c(1,2,3,4,5))
 ```
+
 ## Storing Results From A Loop
+
 ```{r class.source="watch-out"}
 #Results = vector(length=10)
 #for (i in 1:10) {
@@ -355,15 +501,21 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #Results
 #Useful loop structure for vectors with an unknown length
 ```
+
 ## Loop Errors
+
 ```{r class.source="watch-out"}
 #***Trying to grab from index <= 0 will return and error because no such index exists
 
 #Loops within loops must use different variables for index
 ```
-***
-# <span style="color:#9966FF;">**Conditions:**</span>
+
+------------------------------------------------------------------------
+
+# [**Conditions:**]{style="color:#9966FF;"}
+
 ## If/Else Statements
+
 ```{r class.source="watch-out"}
 #if (condition) {
 #  Code
@@ -389,9 +541,27 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #    }
 #Will run "Code1" if condition1 is true and will check condition2 only if condition1 was false. It will then check condition2 like a if statement and proceed from there.
 ```
+
+------------------------------------------------------------------------
+
+# [**Simulation:**]{style="color:#CC00FF;"}
+
+```{r class.source="watch-out"}
+#sample(1:100, 60, replace=TRUE) #Returns random number between 1 and 100 inclusive 60 times, more than 1 times returns a list, replace = TRUE replaces values after sampled
+
+#runif(1000,0,1) #Returns a list of 1000 numbers randomly generated between 0 and 1 inclusive with decimals including #Intended to create uniform distributions between the two values.
+
+#rnorm(1000,mean,standard deviation) #Returns a list of 1000 numbers generated in a way to create a normal distribution with a mean specified and standard deviation specified
+
+#Sample(c("heads","tails"),1) #Uses sample to make a coin flip
+```
+
 ***
-# <span style="color:#CC00FF;">**Online Data:**</span>
+
+# [**Online Data:**]{style="color:#CC00FF;"}
+
 ## Getting Data
+
 ```{r class.source="watch-out"}
 #library(sas7bdat)
 #texas <- read.sas7bdat('texas.sas7bdat') #May not always be in csv format
@@ -408,8 +578,10 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 #Dataset = tibble("Header" = list, "Header" = list, +...) #Combines list created by doing the above into a tibble dataset.
 ```
+
 ## Online Dataset Resources
-[Kaggle](https://www.kaggle.com) 
+
+[Kaggle](https://www.kaggle.com)
 
 [Github Datasets(Easy)](https://corgis-edu.github.io/corgis/csv/)
 
@@ -417,17 +589,22 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 [Austin Datasets](https://data.austintexas.gov/)
 
-***
-# <span style="color:#3366FF;">**Plotting In Base r:**</span>
+------------------------------------------------------------------------
+
+# [**Plotting In Base r:**]{style="color:#3366FF;"}
+
 [Base R Plots Cheatsheet](https://publish.illinois.edu/johnrgallagher/files/2015/10/BaseGraphicsCheatsheet.pdf)
 
 ## Plots
+
 ```{r class.source="watch-out"}
 #hist(x=,y=)
 #barplot(x=,y=)
 #plot(x=,y=)
 ```
-## Plot Specifics 
+
+## Plot Specifics
+
 ```{r class.source="watch-out"}
 #main = 'name of plot' 
 #xlab = 'x axis label' 
@@ -441,7 +618,9 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #margin = 1/2 changes if columns or rows = 1 in prop table
 #theme(legend.position="none") removes lengends
 ```
+
 ## Layers (Must run as a group to work)
+
 ```{r class.source="watch-out"}
 #birthwt <- read.csv('birthwt.csv')
 #plot(birthwt$lwt,birthwt$bwt,main='Mothers Weight and Birthweight',xlab='Mothers Pre-Pregnancy Weight (lbs)',ylab='Birthweight (g)',pch=20)
@@ -449,14 +628,18 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #abline(v=mean(birthwt$lwt),col='darkgreen',lwd=4)
 #abline(lm(birthwt$bwt~birthwt$lwt),col='red')
 ```
+
 ## To create a color difference
+
 ```{r class.source="watch-out"}
 #SmokeYes <- birthwt[birthwt$smoke=='yes',]
 #SmokeNo <- birthwt[birthwt$smoke=='no',]
 #plot(SmokeYes$lwt,SmokeYes$bwt,main='Mothers Weight and Birthweight',xlab='Mothers Pre-Pregnancy Weight (lbs)',ylab='Birthweight (g)',pch=20,col='orange')
 #points(SmokeNo$lwt,SmokeNo$bwt,pch=20,col='blue')
 ```
-## Creating 2 sets of data and adding the second set of points 
+
+## Creating 2 sets of data and adding the second set of points
+
 ```{r class.source="watch-out"}
 #plot(birthwt$lwt,birthwt$bwt,main='Mothers Weight and Birthweight',xlab='Mothers Pre-Pregnancy Weight (lbs)',ylab='Birthweight (g)',pch=20)
 #text(230,2000,'Write text here')
@@ -467,9 +650,13 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #points(SmokeNo$lwt,SmokeNo$bwt,pch=20,col='blue')
 #legend('bottomright',c('Smokers','Non-Smokers'),pch=c(20,20),col=c('orange','blue'), inset=.03)
 ```
-***
-# <span style="color:#3366FF;">**Basic Tables:**</span>
+
+------------------------------------------------------------------------
+
+# [**Basic Tables:**]{style="color:#3366FF;"}
+
 ## Base r basic table format
+
 ```{r class.source="watch-out"}
 #|Header1|Header2|Header3|
 #|-------|-------|-------|
@@ -478,22 +665,29 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #|Cat/Num|Cat/Num|Cat/Num|
 #|Cat/Num|Cat/Num|Cat/Num|
 ```
-***
-# <span style="color:#009999;">**Ggplot Essentials:**</span>
+
+------------------------------------------------------------------------
+
+# [**Ggplot Essentials:**]{style="color:#009999;"}
+
 ## Adding to graph code
+
 ```{r class.source="watch-out"}
 #+labs(title="",x="",y="") #changes default axis labels and graph title
 #+theme(axis.title.x=element_blank(),axis.title.y=element_blank(),) #removes axis labels
 #+theme(axis.text.x=element_blank(),axis.text.y=element_blank()) #removes axis text on ticks
 #+theme(axis.ticks.x=element_blank(),axis.ticks.y=element_blank()) #removes axis tick marks
 #+theme(axis.text.x=element_text(angle=angle,hjust=1)) #hjust1=align top, hjust0=align bottom, no hjust=align middle
+#+scale_color_manual(values=Vector_Color) #Useful to color 2 categories in a graph
 
 #+theme_classic() changes to blank white screen
 #+theme_dark() changes background to grey square grid
 #+theme_linedraw() changes background to grid
 #+theme_void() removes all ticks,axis lines, and grids 
 ```
-## Must define ggplot objectfirst(Must do every time data set is updated) 
+
+## Must define ggplot objectfirst(Must do every time data set is updated)
+
 ```{r class.source="watch-out"}
 #bw_ggplot <-ggplot(birthwt) 
 #bw_ggplot + geom_bar(aes(x=smoke)) 
@@ -530,10 +724,15 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 ```{r class.source="watch-out"}
 #bw_ggplot + geom_point(aes(x=lwt,y=bwt,color=age)) + labs(title='Birthweight by Age and Mothers Weight',x='Mothers Weight (lbs)',y='Birthweight (g)')
 ```
+
 ## Ttitle and global options at top must be formatted exactly as seen
-***
-# <span style="color:#009999;">**Rmarkdown:**</span>
+
+------------------------------------------------------------------------
+
+# [**Rmarkdown:**]{style="color:#009999;"}
+
 ## File header and formatting
+
 ```{r class.source="watch-out"}
 #---
 #title: "Library"
@@ -556,7 +755,9 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #lumin #brght with some blue icons
 #darkly #dark theme
 ```
+
 ## Editing code chunk visual outputs
+
 ```{r class.source="watch-out"}
 #```{css, echo=FALSE}
 #.watch-out {
@@ -568,41 +769,59 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #  }
 #```
 ```
+
 ## How Code Chunks Work
+
 ```{r class.source="watch-out"}
 #```{r}
 #Can run all code in this segment by pressing green arrow
 #```
 ```
+
 ## Code In Line Means
+
 ```{r class.source="watch-out"}
 #`r mean(shelter$Days.to.Adoption)`
 ```
+
 ## Suppressing Code(visual code in report)
+
 ```{r class.source="watch-out"}
 #{r, echo=FALSE}
 ```
+
 ## Suppressing Output
+
 ```{r class.source="watch-out"}
 #{r, results='hide'}
 ```
+
 ## Suppressing code and output
+
 ```{r class.source="watch-out"}
 #{r, include=FALSE}
 ```
+
 ## Suppressing messages
+
 ```{r class.source="watch-out"}
 #{r, message=FALSE}
 ```
+
 ## Resources
+
 ```{r class.source="watch-out"}
 #-   [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
 #-   [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/%20)
 #-   [R Markdown - The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
 ```
-***
-# <span style="color:#009999;">**Tidyvers Functions:**</span>
+
+------------------------------------------------------------------------
+
+# [**Tidyvers Functions:**]{style="color:#009999;"}
+
 ## Combining Datasets
+
 ```{r class.source="watch-out"}
 #need to find a commonality between datasets first(the key)
 #left_join() #keeps only observations in fist dataset
@@ -610,7 +829,9 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #inner_join() #keeps matching values
 #full_join() #keeps observations from both datasets
 ```
+
 ## Tibbles better data format
+
 ```{r class.source="watch-out"}
 #read_csv() #read in data set as a tibble, use (,show_col_types=FALSE) to suppress text.
 #as_tibble(dataset) #is the dataset as a tibble
@@ -618,7 +839,9 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #mytib <- as_tibble(dataset) #setting as a tibble
 #mydata <- as.data.frame(mytib) #setting as a data frame
 ```
+
 ## Dplyr manipulating and grabing data
+
 ```{r class.source="watch-out"}
 #filter(dataset, observations, ...|...) #outputs dataset with observations 
 #select(dataset, observations) #outputs only the observations mentioned
@@ -627,17 +850,25 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #used in dataset <- mutate(dataset, newColumn = )
 #transmutate(dataset, newColumn = ) #keeps only the new columns
 ```
+
 ## Filtering Data
+
 ```{r class.source="watch-out"}
 #filter(dataset, (conditios))
 ```
-***
-# <span style="color:#009999;">**KableExtra Essentials:**</span>
+
+------------------------------------------------------------------------
+
+# [**KableExtra Essentials:**]{style="color:#009999;"}
+
 ## Tables
+
 ```{r class.source="watch-out"}
 #kbl(dataset) Most basic table for basic datasets
 ```
+
 ## Can change the theme of the table
+
 ```{r class.source="watch-out"}
 #+kable_paper()
 #+kable_classic()
@@ -648,7 +879,9 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 #Example of it used) kbl(Top_Ten) %>% kable_paper(full_width = T, html_font = "Cambria")
 ```
+
 ## adding styles to rows and columns
+
 ```{r class.source="watch-out"}
 #kable_styling(bootstrap_options = c("striped","hover","condensed","responsive")) (used within styling)
 #striped = alternating dark rows
@@ -662,18 +895,26 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 #Example of it used) kbl(Top_Ten) %>% kable_paper(full_width = T, html_font = "Cambria") %>% kable_styling(bootstrap_options = c("striped","hover","condensed","responsive"
 ```
+
 ## Specifying Rows and Columns
+
 ```{r class.source="watch-out"}
 #column_spec(index,(what to do with it)) #Grabs the specific index and changes it or grabs it
 #row_spec(index,(what to do with it)) #Grabs the specific index and changes it or grabs it
 ```
+
 ## Table alignment
+
 ```{r class.source="watch-out"}
 #,position="left"    ("right" or "center") only matters if table does not have full width (used within styling)
 ```
-***
-# <span style="color:#009900;">**Date Parsing/Format:**</span>
+
+------------------------------------------------------------------------
+
+# [**Date Parsing/Format:**]{style="color:#009900;"}
+
 ## Date And Time
+
 | Description                   | Code |
 |-------------------------------|------|
 | Day of the month (decimal \#) | *%d* |
@@ -685,17 +926,24 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 | Hour                          | *h*  |
 | Minute                        | *m*  |
 | Second                        | *s*  |
+
 ## Asks r for the current date and time
+
 ```{r class.source="watch-out"}
 #Sys.Date()
 #Sys.time()
 ```
+
 ## Making a date string into a date
+
 ```{r class.source="watch-out"}
 #mystring <- c("1990-5-16","1990-6-22")
 #mydates1 <- as.Date(mystring)
+#as.Date(Monkey_Default$Date.Full, format="%m/%d/%y") #format can be replaced with whatever the string is formatted as
 ```
+
 ## Grabing specifics from a date
+
 ```{r class.source="watch-out"}
 #month(mydates1)
 #day(mydates1)
@@ -706,75 +954,88 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #yday() #day of the year
 #wday() #day of the week
 ```
+
 ## Calculating time spans
+
 ```{r class.source="watch-out"}
 #mydates2 <- as.Date(c("1990/8/17","1991/2/5"))
 #mydates2 - mydates1
 ```
+
 ## Need to specific the format when dates are in different formats
+
 ```{r class.source="watch-out"}
 #as.Date is a Base R function
 #as.Date("1/15/2001")
 #as.Date("1/15/2001",format="%m/%d/%Y")
 ```
+
 ## Todays date
+
 ```{r class.source="watch-out"}
 #date()
 #today()
 #now()
 ```
-## Can also parse dates this way 
+
+## Can also parse dates this way
+
 ```{r class.source="watch-out"}
 #ymd("2017-01-31")
 #mdy("January 31st, 2017")
 #dmy("31-Jan-2017")
 #ymd(20170131)
 ```
-***
-# <span style="color:#CCFF33;">**Using Color:**</span>
+
+------------------------------------------------------------------------
+
+# [**Using Color:**]{style="color:#CCFF33;"}
+
 ## Hexadecimal Examples
+
 ```{r class.source="watch-out"}
 #colored text = <span style="color:color_value;">TEXT</span>
 #colored header = # <span style="color:color_value;">**colored_header:**</span>
 ```
 
-<span style="color:#FFCC00;">#FFCC00</span>
+[#FFCC00]{style="color:#FFCC00;"}
 
-<span style="color:#FF9900;">#FF9900</span>
+[#FF9900]{style="color:#FF9900;"}
 
-<span style="color:#FF6600;">#FF6600</span>
+[#FF6600]{style="color:#FF6600;"}
 
-<span style="color:#FF3300;">#FF3300</span>
+[#FF3300]{style="color:#FF3300;"}
 
-<span style="color:#FF0066;">#FF0066</span>
+[#FF0066]{style="color:#FF0066;"}
 
-<span style="color:#FF00CC;">#FF00CC</span>
+[#FF00CC]{style="color:#FF00CC;"}
 
-<span style="color:#CC33CC;">#CC33CC</span>
+[#CC33CC]{style="color:#CC33CC;"}
 
-<span style="color:#CC00FF;">#CC00FF</span>
+[#CC00FF]{style="color:#CC00FF;"}
 
-<span style="color:#0033FF;">#0033FF</span>
+[#0033FF]{style="color:#0033FF;"}
 
-<span style="color:#0066FF;">#0066FF</span>
+[#0066FF]{style="color:#0066FF;"}
 
-<span style="color:#0099FF;">#0099FF</span>
+[#0099FF]{style="color:#0099FF;"}
 
-<span style="color:#00CCFF;">#00CCFF</span>
+[#00CCFF]{style="color:#00CCFF;"}
 
-<span style="color:#00FF99;">#00FF99</span>
+[#00FF99]{style="color:#00FF99;"}
 
-<span style="color:#00FF33;">#00FF33</span>
+[#00FF33]{style="color:#00FF33;"}
 
-<span style="color:#33CC00;">#33CC00</span>
+[#33CC00]{style="color:#33CC00;"}
 
-<span style="color:#66FF00;">#66FF00</span>
+[#66FF00]{style="color:#66FF00;"}
 
-<span style="color:#000000;">#000000</span>
+[#000000]{style="color:#000000;"}
 
-<span style="color:#999999;">#999999</span>
+[#999999]{style="color:#999999;"}
 
 ## library("RColorBrewer")
+
 ```{r class.source="watch-out"}
 library("RColorBrewer")
 
@@ -811,4 +1072,4 @@ display.brewer.pal(n=11, name= 'PiYG')
 display.brewer.pal(n=11, name= 'BrBG')
 ```
 
-***
+------------------------------------------------------------------------

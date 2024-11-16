@@ -1511,7 +1511,8 @@ font-weight: bold;
 text-align: left;
 }
 </style>
-<hr />
+<p>#Climate_General = na_replace(Climate_General, 0) #Replace all NAs
+with 0 #unique() ————————————————————————</p>
 <div id="use-word-search-shortcuts-like-ctrlg-to-find-specific-functions-faster" class="section level1">
 <h1><strong>Use word search shortcuts like CTRL+G to find specific
 functions faster</strong></h1>
@@ -1815,6 +1816,17 @@ NA:</strong></span></h1>
 <hr />
 </div>
 </div>
+<div id="functions" class="section level1">
+<h1><span style="color:#9966FF;"><strong>Functions:</strong></span></h1>
+<pre class="r watch-out"><code>#Function_Name = function(variable=Default, variable, variable){
+#  print()
+#  return()
+#  break() #would break out of the loop
+#}
+
+#Function_Name(variable, variable, variable) #Calling the function</code></pre>
+<hr />
+</div>
 <div id="strings" class="section level1">
 <h1><span style="color:#9966FF;"><strong>Strings:</strong></span></h1>
 <div id="converting-to-utf-8-strings-useful-for-scrapes" class="section level2">
@@ -1858,11 +1870,14 @@ NA:</strong></span></h1>
 <pre class="r watch-out"><code>#str_to_upper(string) #whole string uppercase
 #str_to_lower(string) #whole string lowercase
 
+#paste(&quot;String&quot;, &quot;String&quot;, numeric, ...) #Combines the items
+#paste(Split_Lyrics_Data, collapse=&quot; &quot;) #Convert list data into large string
+
 #str_extract(x, &quot;character/text&quot;) #Returns just the character/text contained in x (if it doesn&#39;t exist it returns NA)
 
 #str_replace_all(x, &quot;character/text1&quot;, &quot;character/text2&quot;) #Returns elements of x with character/text1 replaced with character/text2
 
-#str_split(x, &quot; &quot;, simplify=TRUE) #Returns a dataset with each element of x in a separate column and the text separated by &quot; &quot; being put into rows of that column.
+#str_split(x, &quot; &quot;, simplify=TRUE) #Returns a dataset with each element of x in a separate column and the text separated by &quot; &quot; being put into rows of that column. (&quot; &quot; can be replaced with any character like &quot;/&quot; to split dates Y/M/D)
 
 #str_sub_vec = as.vector(x) #Returns a vector of x</code></pre>
 <hr />
@@ -1931,6 +1946,17 @@ NA:</strong></span></h1>
 #Will run &quot;Code1&quot; if condition1 is true and will check condition2 only if condition1 was false. It will then check condition2 like a if statement and proceed from there.</code></pre>
 <hr />
 </div>
+</div>
+<div id="simulation" class="section level1">
+<h1><span style="color:#CC00FF;"><strong>Simulation:</strong></span></h1>
+<pre class="r watch-out"><code>#sample(1:100, 60, replace=TRUE) #Returns random number between 1 and 100 inclusive 60 times, more than 1 times returns a list, replace = TRUE replaces values after sampled
+
+#runif(1000,0,1) #Returns a list of 1000 numbers randomly generated between 0 and 1 inclusive with decimals including #Intended to create uniform distributions between the two values.
+
+#rnorm(1000,mean,standard deviation) #Returns a list of 1000 numbers generated in a way to create a normal distribution with a mean specified and standard deviation specified
+
+#Sample(c(&quot;heads&quot;,&quot;tails&quot;),1) #Uses sample to make a coin flip</code></pre>
+<hr />
 </div>
 <div id="online-data" class="section level1">
 <h1><span style="color:#CC00FF;"><strong>Online
@@ -2037,6 +2063,7 @@ Essentials:</strong></span></h1>
 #+theme(axis.text.x=element_blank(),axis.text.y=element_blank()) #removes axis text on ticks
 #+theme(axis.ticks.x=element_blank(),axis.ticks.y=element_blank()) #removes axis tick marks
 #+theme(axis.text.x=element_text(angle=angle,hjust=1)) #hjust1=align top, hjust0=align bottom, no hjust=align middle
+#+scale_color_manual(values=Vector_Color) #Useful to color 2 categories in a graph
 
 #+theme_classic() changes to blank white screen
 #+theme_dark() changes background to grey square grid
@@ -2274,7 +2301,8 @@ Parsing/Format:</strong></span></h1>
 <div id="making-a-date-string-into-a-date" class="section level2">
 <h2>Making a date string into a date</h2>
 <pre class="r watch-out"><code>#mystring &lt;- c(&quot;1990-5-16&quot;,&quot;1990-6-22&quot;)
-#mydates1 &lt;- as.Date(mystring)</code></pre>
+#mydates1 &lt;- as.Date(mystring)
+#as.Date(Monkey_Default$Date.Full, format=&quot;%m/%d/%y&quot;) #format can be replaced with whatever the string is formatted as</code></pre>
 </div>
 <div id="grabing-specifics-from-a-date" class="section level2">
 <h2>Grabing specifics from a date</h2>
