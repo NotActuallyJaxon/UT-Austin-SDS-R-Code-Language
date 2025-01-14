@@ -21,8 +21,9 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
   text-align: left;
   }
 ```
-#Climate_General = na_replace(Climate_General, 0) #Replace all NAs with 0
-#unique()
+
+* [Library Github](https://github.com/NotActuallyJaxon/SDS-313-UT-Austin)
+
 ------------------------------------------------------------------------
 
 # **Use word search shortcuts like CTRL+G to find specific functions faster**
@@ -31,9 +32,32 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 # [**Packages:**]{style="color:#FF3333;"}
 
+## bslib (adds themes and nice formating to shiny apps)
+
+```{r class.source="watch-out"}
+#install.packages("rsconnect")
+#library(rsconnect)
+```
+
+## rsconnect (used to publish shiny apps)
+
+```{r class.source="watch-out"}
+#install.packages("rsconnect")
+#library(rsconnect)
+```
+
+## shiny (handy web apps)
+
+* [Cheat Sheet](https://rstudio.github.io/cheatsheets/shiny.pdf)
+
+```{r class.source="watch-out"}
+#install.packages("shiny")
+#library(shiny)
+```
+
 ## rvest (Used for reading and importing html)
 
-[Cheat Sheet](https://cran.r-project.org/web/packages/rvest/rvest.pdf)
+* [Cheat Sheet](https://cran.r-project.org/web/packages/rvest/rvest.pdf)
 
 ```{r class.source="watch-out"}
 #install.packages("rvest")
@@ -42,7 +66,7 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 ## sas7bdat (Reads sas7bdat files)
 
-[Cheat Sheet](https://cran.r-project.org/web/packages/sas7bdat/sas7bdat.pdf)
+* [Cheat Sheet](https://cran.r-project.org/web/packages/sas7bdat/sas7bdat.pdf)
 
 ```{r class.source="watch-out"}
 #install.packages("sas7bdat")
@@ -51,7 +75,7 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 ## stringr (Manipulate and navigate strings)
 
-[Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/main/strings.pdf)
+* [Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/main/strings.pdf)
 
 ```{r class.source="watch-out"}
 #install.packages("stringr")
@@ -60,7 +84,7 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 ## lubridate (Dates and times)
 
-[Cheat Sheet](https://rawgit.com/rstudio/cheatsheets/main/lubridate.pdf)
+* [Cheat Sheet](https://rawgit.com/rstudio/cheatsheets/main/lubridate.pdf)
 
 ```{r class.source="watch-out"}
 #install.packages("lubridate")
@@ -69,7 +93,7 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 ## nycflights13 (dataset for New York City departing flights)
 
-[Cheat Sheet](https://cran.r-project.org/web/packages/nycflights13/nycflights13.pdf)
+* [Cheat Sheet](https://cran.r-project.org/web/packages/nycflights13/nycflights13.pdf)
 
 ```{r class.source="watch-out"}
 #install.packages("nycflights13")
@@ -78,7 +102,7 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 ## rmarkdown (Rmarkdown files)
 
-[Cheat Sheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/rmarkdown-cheatsheet-2.0.pdf)
+* [Cheat Sheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/rmarkdown-cheatsheet-2.0.pdf)
 
 ```{r class.source="watch-out"}
 #install.packages("rmarkdown")
@@ -87,16 +111,17 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 ## kableExtra (Better tables)
 
-[Cheat Sheet](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html)
+* [Cheat Sheet](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html)
 
 ```{r class.source="watch-out"}
 #install.packages("kableExtra")
 #library(kableExtra)
 ```
 
-## ggplot (Better graphs)
+## ggplot2 (Better graphs)
 
-[Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf)
+* [GGplot2 Guide](https://r-charts.com/ggplot2/)
+* [Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf)
 
 ```{r class.source="watch-out"}
 #install.packages("ggplot2")
@@ -105,7 +130,7 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 ## tidyverse (Includes a variety of packages containing useful functions)
 
-[Cheat Sheet](https://res.cloudinary.com/dyd911kmh/image/upload/v1676302697/Marketing/Blog/Tidyverse_Cheat_Sheet.pdf)
+* [Cheat Sheet](https://res.cloudinary.com/dyd911kmh/image/upload/v1676302697/Marketing/Blog/Tidyverse_Cheat_Sheet.pdf)
 
 ```{r class.source="watch-out"}
 #install.packages("tidyverse")
@@ -278,6 +303,7 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 ```{r class.source="watch-out"}
 #index <- which(data$variable == whatIsBeingLookedFor)
+#unique(vector) #returns every unique value in vector, can be used for colnames / row values
 ```
 
 ## Indexing [row,column] #specify a column by using \$column
@@ -302,12 +328,13 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 ------------------------------------------------------------------------
 
-# [**Subset, Manipulate Data:**]{style="color:#9966FF;"}
+# [**Subset, Manipulate Data, Create Datasets:**]{style="color:#9966FF;"}
 
 ## Creating Subset
 
 ```{r class.source="watch-out"}
 #Rmovies <- films[films$Rating == 'R',]
+#dataset = tibble("header1"=vector1, "header2"=vector2) creates a tibble dataset with headers as column names and values or rows set to vectors given
 ```
 
 ## Creating New Variable In This Dataset
@@ -319,13 +346,15 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 ## Combining Colums
 
 ```{r class.source="watch-out"}
-#cbind()
+#cbind(dataset1, dataset2) #(adds columns together) number of rows should be the same, IDs should match
+#rbind(dataset1, dataset2) #(adds rows together) number of columns should be the same, also column naming should match
 ```
 
 ## Naming columns
 
 ```{r class.source="watch-out"}
-#colnames(dataset)[columnIndex]="newHeader"
+#colnames(dataset)[columnIndex] = "newHeader"
+#rownames(dataset)[columnIndex] = "newHeader"
 ```
 
 ## Rearranging/sorting data
@@ -334,6 +363,14 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #arrange(dataset, (ColumnToArrangeBy)) will sort alphabetically/numerically
 #Make -(ColumnToArrangeBy) to order descending
 ```
+
+## Summing column rows / aggregate
+
+```{r class.source="watch-out"}
+#dataset2 = aggregate( cbind(Header1,Header2) ~ Indicator, data = dataset , FUN = sum ) #Creates a new dataset2 which is made of the column headers 1 and 2 aggregated by indicator (which when set as a column aggregates by the values in that column)
+```
+
+###
 
 ------------------------------------------------------------------------
 
@@ -392,6 +429,7 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #na.rm=TRUE #ignors NA values (useful for graphing)
 #na.omit() #removes any rows that contain NAs
 #use="complete.obs" #ignors NA values (useful for calculations)
+#Climate_General = na_replace(dataset, 0) #Replace all NAs in datasetwith 0, 0 can be replaced with any matching type value.
 ```
 
 ------------------------------------------------------------------------
@@ -458,7 +496,8 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 #str_to_upper(string) #whole string uppercase
 #str_to_lower(string) #whole string lowercase
 
-#paste("String", "String", numeric, ...) #Combines the items
+#paste("String", "String", numeric, ...) #Combines the items with a space
+#paste0("String", "String", numeric, ...) #Combines the items without a space
 #paste(Split_Lyrics_Data, collapse=" ") #Convert list data into large string
 
 #str_extract(x, "character/text") #Returns just the character/text contained in x (if it doesn't exist it returns NA)
@@ -581,19 +620,226 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 ## Online Dataset Resources
 
-[Kaggle](https://www.kaggle.com)
+* [Kaggle](https://www.kaggle.com)
+* [Github Datasets(Easy)](https://corgis-edu.github.io/corgis/csv/)
+* [Github Datasets](https://github.com/rfordatascience/tidytuesday)
+* [Austin Datasets](https://data.austintexas.gov/)
 
-[Github Datasets(Easy)](https://corgis-edu.github.io/corgis/csv/)
+***
 
-[Github Datasets](https://github.com/rfordatascience/tidytuesday)
+# [**Shiny:**]{style="color:#CC00FF;"}
 
-[Austin Datasets](https://data.austintexas.gov/)
+* [Cheat Sheet](https://rstudio.github.io/cheatsheets/shiny.pdf)
+* [Example Gallery](https://shiny.posit.co/r/gallery/#user-showcase)
+* [Widgets For Apps](https://shiny.posit.co/r/gallery/widgets/widget-gallery/)
+
+## Setting up Shiny
+
+```{r class.source="watch-out"}
+#install.packages("shiny")
+#library(shiny)
+#install.packages("rsconnect")
+#library("rsconnect")
+#rsconnect::setAccountInfo(name='notactuallyjaxon', token='7142DD4C6D0F2C207F4AD2BB097C9198', secret='J6Nb9+RxhbWCCeP5pkWWQls4cBIguvtcp8O1RtKi')
+```
+
+##Uploading an app to Shiny
+
+```{r class.source="watch-out"}
+#create a folder for the app - Name it something simple like DataXXX
+#rsconnect::deployApp("app.R file working directory")
+#forgetDeployment() for publishing over an existing app published from the same file
+```
+
+## Basic Structure of a Shiny App
+
+```{r class.source="watch-out"}
+#ui = fluidPage( #User interface / visual output
+#
+#) 
+
+#server = function(input, output){ #Server function / calculations
+#
+#} 
+  
+#shinyApp(ui = ui, server = server) #Call to run the app / running the app
+```
+
+## Creating Shiny Apps
+
+```{r class.source="watch-out"}
+#Defining user interface
+#ui = fluidPage(
+#  #App title
+#  titlePanel("This is the Title"),
+#  
+#  sidebarLayout(
+#    sidebarPanel("This the slidebar panel"),
+#    mainPanel(
+#      h2(em("This is the main header panel"),align="center",style="color:pink"), #em() is for italics
+#      br(), #Line break
+#      p(strong("bolded paragraph text")),
+#      div("Can also style text like so", style="color:purple")
+#    )
+#  )
+#)
+#
+#Define server function (blank)
+#server = function(input,output){
+#}
+
+#Running the app
+#shinyApp(ui=ui,server=server)
+```
+
+## Widgets
+
+```{r class.source="watch-out"}
+#actionButton("WidgetName", label = "Text")
+
+#radioButtons("WidgetName", label=h3("Header Text:"), 
+#                 choices=list("Text"=value,"Text"=value), 
+#                 selected = defaultNumericChoice)
+
+#selectInput("WidgetName", label = h3("Header Text:"), 
+#                choices=list("Text"=value, "Text"=value), 
+#                selected = defaultNumericChoice)
+
+#sliderInput("WidgetName", label = h3("Header Text:"), 
+#               min = minimumVal, max = maximumVal, 
+#               value=c(leftVal, rightVal))
+
+#checkboxGroupInput("WidgetName", label = h3("Header Text:"),
+#               choices=list("Text"=value, "Text"=value),
+#               selected=c("Value/s"))
+
+#checkboxInput("WidgetName", label = "Text", value = value)
+
+#dateInput("WidgetName", label = h3("Header Text:"), 
+#               value = "year-month-day")
+
+#dateRangeInput("WidgetName", label = h3("Header Text:"))
+
+#fileInput("WidgetName", label = h3("Header Text:"))
+
+#numericInput("WidgetName", label = h3("Header Text:"), 
+#               value = 1)
+
+#textInput("WidgetName", label = h3("Header Text:"), 
+#               value = "text")
+```
+
+## Using Widget Values
+
+```{r class.source="watch-out"}
+#Value of widget
+#input$WidgetName
+```
+
+## Assigning values for output / syntax for showing output
+
+```{r class.source="watch-out"}
+#mainPanel(
+#    p("Output1 header:"),
+#    fluidRow(verbatimTextOutput("ValueVariable1")),
+#    p("Output2 header:"),
+#    fluidRow(verbatimTextOutput("ValueVariable2")),
+#    p("Output3 header:"),
+#    fluidRow(verbatimTextOutput("ValueVariable3")),
+#)
+
+#server <- function(input, output) {
+#    
+#    #Access the values of the widget (as a vector)
+#    # with input$radio
+#    output$ValueVariable1 <- renderPrint(Value1)
+#    output$ValueVariable2 <- renderPrint(Value2)
+#    output$ValueVariable3 <- renderPrint(Value3)
+#}
+```
+
+## Render Outputs (Server section)
+
+```{r class.source="watch-out"}
+#Text/Numeric/Boolean outputs
+#renderPrint()
+
+#Plot outputs
+#renderPlot()
+
+#Data outputs
+#renderDataTable()
+
+#Image outputs
+#renderImage()
+
+#Table output
+#renderTable()
+
+#Text output
+#renderText()
+
+#UI output
+#renderUI()
+```
+
+## Actual outputs (ui section)
+
+```{r class.source="watch-out"}
+#Text/Numeric/Boolean outputs
+#verbatimTextOutput()
+
+#Plot outputs
+#plotOutput()
+
+#Data outputs
+#dataTableOutput()
+
+#Image outputs
+#imageOutput()
+
+#Table output
+#tableOutput()
+
+#Text output
+#textOutput()
+
+#UI output
+#uiOutput()
+#htmlOutput()
+```
+
+## App Visual Structure
+
+```{r class.source="watch-out"}
+#hr() #Horizontal line break
+
+#br() #Empty space break
+
+#p("regular text")
+#p(strong("bold text"))
+#p(em("italic text"))
+#p(code("code text"))
+#a(href="link", "link name")
+
+#card_header(h3("Header Text:"))
+
+#navset_card_underline(
+#  nav_panel("Tab Panel Name", card_header("Tab Panel Text"),
+#  nav_panel("Tab Panel Name", card_header("Tab Panel Text"),
+#  ...
+#)
+
+#conditionalPanel(condition = true/false_statement
+#  #rest of the panel that displays if true
+#)
+```
 
 ------------------------------------------------------------------------
 
 # [**Plotting In Base r:**]{style="color:#3366FF;"}
 
-[Base R Plots Cheatsheet](https://publish.illinois.edu/johnrgallagher/files/2015/10/BaseGraphicsCheatsheet.pdf)
+* [Base R Plots Cheatsheet](https://publish.illinois.edu/johnrgallagher/files/2015/10/BaseGraphicsCheatsheet.pdf)
 
 ## Plots
 
@@ -668,64 +914,179 @@ knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.
 
 ------------------------------------------------------------------------
 
-# [**Ggplot Essentials:**]{style="color:#009999;"}
+# [**Ggplot2 Essentials:**]{style="color:#009999;"}
 
-## Adding to graph code
+## Customization features for all graphs
 
 ```{r class.source="watch-out"}
-#+labs(title="",x="",y="") #changes default axis labels and graph title
-#+theme(axis.title.x=element_blank(),axis.title.y=element_blank(),) #removes axis labels
-#+theme(axis.text.x=element_blank(),axis.text.y=element_blank()) #removes axis text on ticks
-#+theme(axis.ticks.x=element_blank(),axis.ticks.y=element_blank()) #removes axis tick marks
-#+theme(axis.text.x=element_text(angle=angle,hjust=1)) #hjust1=align top, hjust0=align bottom, no hjust=align middle
+#+labs(title="",subtitle="",caption="",tag="",x="",y="",fill="legendName") #changes default graph text
+
 #+scale_color_manual(values=Vector_Color) #Useful to color 2 categories in a graph
 
-#+theme_classic() changes to blank white screen
-#+theme_dark() changes background to grey square grid
-#+theme_linedraw() changes background to grid
-#+theme_void() removes all ticks,axis lines, and grids 
+#+scale_y_continuous(breaks=seq(10,35,by=1) #Customizes major breaks of Y-axis from 1-35 in increments of 1
+#                    minor_breaks(10,35,0.5)) #Customizes minor breaks of Y-axis from 1-35 in increments of 0.5
+#+scale_x_continuous(breaks=seq(10,35,by=1) #Customizes major breaks of X-axis from 1-35 in increments of 1
+#                    minor_breaks(10,35,0.5)) #Customizes minor breaks of Y-axis from 1-35 in increments of 0.5
+
+#+geom_text(aes(x=X-coordinate,y=Y-coordinate,label="text"),stat="unique" #Coordinates of text and characters in text
+#               ,size=size #Size of text
+#               ,color="color") #Color of text
+#+geom_text(aes(label=variable)) #Automatically assigns text to where groups in variable are
+
+#+geom_label(aes(x=X-coordinate,y=Y-coordinate,label="text").stat="unique" #Coordinates of text and characters in label
+#               ,vjust=2 #vertical adjustment of label (-1) above (+1) below
+#               ,size=size #Size of text
+#               ,color="color" #Color of text
+#               ,fill=""color") #Color of background
+#+geom_text(aes(label=variable)) #Automatically assigns labels to where groups in variable are
+
+#+geom_vline(xintercept=0, #adds vertical line at X-intercept (can use vector to add multiple ex -1:1)
+#           linetype=2, #type (doted or solid, so on)
+#           color=2) #color
+
+#+geom_hline(yintercept=0, #adds vertical line at Y-intercept (can use vector to add multiple ex -1:1)
+#           linetype=2, #type (doted or solid,so on)
+#           color=2) #color
+
+#+geom_abline(intercept=0, #Y-intercept of the line
+#            slop=1) #line with a slope of 1
+
+#+coord_flip() #Flips axes
+
+#+geom_smooth(formula = y ~ x, method = "lm", se = FALSE, na.rm=TRUE, color="color") adds a line of best fit to the graph (regression line)
 ```
 
-## Must define ggplot objectfirst(Must do every time data set is updated)
+## Customization using theme function
 
 ```{r class.source="watch-out"}
-#bw_ggplot <-ggplot(birthwt) 
-#bw_ggplot + geom_bar(aes(x=smoke)) 
-#bw_ggplot + geom_histogram(aes(x=bwt)) bw_ggplot + geom_point(aes(x=lwt,y=bwt))
+#element_blank(),element_rect(),element_text(),(.position),(.ticks),(.title),(.text),(.background) can be used widely for any element
+
+#+theme(plot.title = element_text(family = "serif",              # Font family
+#                                  face = "bold",                 # Font face
+#                                  color = 4,                     # Font color
+#                                  size = 15,                     # Font size
+#                                  hjust = 1,                     # Horizontal adjustment
+#                                  vjust = 1,                     # Vertical adjustment
+#                                  angle = -10,                   # Font angle
+#                                  lineheight = 1,                # Line spacing
+#                                  margin = margin(20, 0, 0, 0)), # Margins (t, r, b, l)
+#
+#        plot.subtitle = element_text(hjust = 0),    # Subtitle customization
+#        plot.caption = element_text(hjust = 0.25),  # Caption customization
+#        plot.tag = element_text(face = "italic"),   # Tag customization
+#        plot.title.position = "plot",               # Title and subtitle position ("plot" or "panel")
+#        plot.caption.position = "panel",            # Caption position ("plot" or "panel")
+#        plot.tag.position = "top",                  # Tag position
+#
+#        panel.background = element_rect(fill="color")) #background color of graph
+#        panel.border = element_rect(fill="transparent",color=4,size=size) #fill=transparent needed to add the border
+#        plot.background = element_rect(fill="color") #Backgroud color of plot
+#        plot.background = element_rect(color="color",size=size) #Border of plot
+#
+#        legend.title=element_blank() #Removes title of legend
+#        legend.position="none" #Removes legend
+#        axis.title.x=element_blank() #Removes x axis label
+#        axis.title.y=element_blank() #Removes y axis label
+#        axis.text.x=element_blank() #Removes x axis text on ticks
+#        axis.text.y=element_blank() #Removes y axis text on ticks
+#        axis.ticks.x=element_blank() #Removes x axis ticks
+#        axis.ticks.y=element_blank() #Removes y axis ticks
+#
+#        panel.grid=element_line(color="color",size=size,linetype=2) #Grid customization
+#        panel.grid.major=element_line(color="color",size=size,linetype=2) #Major grid customization
+#        panel.grid.minor=element_line(color="color",size=size,linetype=2) #Minor grid customization
+#        panel.grid.major.x=element_line(color="color",size=size,linetype=2) #Customizes vertical lines of grid
+#        panel.grid.major.y=element_line(color="color",size=size,linetype=2) #Customizes horizontal lines of grid
+#        panel.grid=element_blank() #Removes grid
+#        panel.grid.major=element_blank() #Removes major grid
+#        panel.grid.minor=element_blank() #Removes minor grid
+#
+#        plot.margin=margin(t=20 #Top margin
+#                           ,r=50 #Right margin
+#                           ,b=40 #Bottom margin
+#                           ,l=10) #Left margin
 ```
+
+## In-built themes
 
 ```{r class.source="watch-out"}
-#bw_ggplot + geom_point(aes(x=lwt,y=bwt)) + theme_classic()
+#+theme_grey() #light grey background, white grid, no border
+#+theme_bw() #white background, light grey grid, black border
+#+theme_linedraw() #white background, black grid, black border
+#+theme_light() #white background, light grey grid, light grey border
+#+theme_dark() #dark grey background, grey grid, no border
+#+theme_minimal() #white background, light grey grid, no border
+#+theme_classic() #white background, no grid, black axis lines no border
+#+theme_void() #white background, no grid, no axis lines or border
 ```
+
+## ggthemes
 
 ```{r class.source="watch-out"}
-#bw_ggplot + geom_point(aes(x=lwt,y=bwt)) + labs(title='Mothers Weight and Birth Weight', x='Mothers Weight (lbs)',y='Birth Weight (g)')
-#bw_ggplot + geom_point(aes(x=lwt,y=bwt), pch=24)
-#bw_ggplot + geom_point(aes(x=lwt,y=bwt)) + xlim(c(50,300)) + ylim(c(0,6000))
+#install.packages("ggthemes")
+#library("ggthemes")
+
+#+theme_excel() #grey graph background, dark grey horizontal major grid, white plot background and extended black plot border
+#+theme_economist() #light blue graph and plot background, white horizontal major grid, extended black plot border
+#+theme_fivethirtyeight() #light grey graph and plot background, dark grey major gird, extended black border
+#+theme_tufte() #white graph and plot background, no grid, no axis lines or ticks, extended black border
+#+theme_gdocs() #white graph and plot background, grey major grid, no y axis line or ticks, bold x axis line without ticks, extended double black border
+#+theme_wsj() #light tan graph and plot background, doted horizontal major grid, extended black border
+#+theme_calc() #white graph and plot background, solid black horizontal major grid, no x or y axis ticks, extended black border
+#+theme_hc() #wite graph and plot background, solid grey major grid, no x or y axis lines, extended black border
 ```
+
+## Graph Types
 
 ```{r class.source="watch-out"}
-#bw_ggplot + geom_bar(aes(x=ftv,fill=low), position = "dodge")
-```
+#Bar Chart
+#ggplot(dataset, aes(x=group,y=count,fill=group,color="color",lwd=lineTypeNumeric)) + geom_bar(stat="identity") + scale_fill_manual(values=c("color","Color",...))
+#bars ordered in order of count so arrange() or c("","") can be used to force a specific order
 
-```{r class.source="watch-out"}
-#bw_ggplot + geom_histogram(aes(x=bwt,fill=smoke), alpha=.5,
-#binwidth=250, position='identity')
-```
+#Point Chart
+#ggplot(dataset, aes(x=x,y=y),size=size,col=color,alpha=transparencyNumeric) + geom_point()
+#      +scale_size(name="LegendName",range=c(1:10)) #clamps size of points to a specific range (1:10)
 
-```{r class.source="watch-out"}
-#bw_ggplot + geom_point(aes(x=lwt,y=bwt,col=smoke))
-```
+#Area Chart
+#ggplot(dataset, aes(x=x,y=y)) + geom_area(fill="color",alpha=transparencyNumeric)
 
-```{r class.source="watch-out"}
-#bw_ggplot + geom_histogram(aes(x=bwt),binwidth=250,col='black',fill='dark red')  + labs(title='Birthweights by Race',x='Birthweight (g)',y='Frequency') + theme(legend.position='bottom') + scale_fill_brewer(type='qual',palette=2) + facet_wrap(~race)
-```
+#Line chart with multiple lines Chart
+#ggplot(dataset, aes(x=x,y=y,color=variable)) + geom_line(linetype=numeric,lwd=lineWidthNumeric,arrow=arrow()) + scale_color_manual(values=colors)
 
-```{r class.source="watch-out"}
-#bw_ggplot + geom_point(aes(x=lwt,y=bwt,color=age)) + labs(title='Birthweight by Age and Mothers Weight',x='Mothers Weight (lbs)',y='Birthweight (g)')
-```
+#Step Chart
+#ggplot(dataset, aes(x=x,y=y)) + geom_step(direction="vh") #first line horizontal by default (vh=first lien vertical)
 
-## Ttitle and global options at top must be formatted exactly as seen
+#Line Chart
+#ggplot(dataset, aes(x=x,y=y)) + geom_line(color=lineColor,lwd=lineWidthNumeric,linetype=lineType(0:6))
+
+#Function Chart
+#ggplot() + xlim(c(0,100)) + geom_function(fun=function,color=color,lwd=lineWidth,linetype=lineType(0:6))
+
+#Histogram Chart
+#ggplot(dataset, aes(x=x)) + geom_histogram(color=color,fill=color,bins=numBins,binwidth=binwidth,alpha=transparencyNumeric
+#                                           ,position="idenity" #allows groups to overlap and no stack
+#                                           ,position="dodge") #adds space between each bar
+
+#Boxplot Chart
+#ggplot(dataset, aes(x=x,y="" or swap x and y) + geom_boxplot(fill=color #box color
+#                                                             ,color=color #border color
+#                                                             ,alpha=transparencyNumeric #transparency
+#                                                             ,outlier.color=color #outlier color
+#                                                             ,linetype=linetype(0:6) #line type
+#                                                             ,lwd=lineWidth) #line width
+#+geom_jitter(width=amountOfJitter,color=color,shape=shapeNumeric,size=size) #adds in data points #Use outlier.shape=NA within geom_boxplot() because it will add them in again
+
+#Stacked Bar Chart
+#ggplot(dataset, aes(x=x,fill=group)) #both x and group being categorical variables with a frequency in the dataset
+#+geom_bar()
+#ggplot(dataset, aes(x=x,y=y,fill=group)) #y represents frequency
+#+geom_bar(stat="identity")
+
+#Pie Chart
+#ggplot(dataset, aes(x="",y=value,fill=group))
+#+geom_col(color=color) #line color
+#+coord_polar(theta="y")
+```
 
 ------------------------------------------------------------------------
 
