@@ -415,6 +415,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # [**Functions:**]{style="color:#9966FF;"}
 
+## Naming and calling functions
 ```{r class.source="watch-out"}
 # Function_Name = function(variable=Default, variable, variable){
 #   print()
@@ -568,6 +569,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # [**Simulation:**]{style="color:#CC00FF;"}
 
+## Random number generation
+
 ```{r class.source="watch-out"}
 # sample(1:100, 60, replace=TRUE) #Returns random number between 1 and 100 inclusive 60 times, more than 1 times returns a list, replace = TRUE replaces values after sampled
 
@@ -576,6 +579,24 @@ knitr::opts_chunk$set(echo = TRUE)
 # rnorm(1000,mean,standard deviation) #Returns a list of 1000 numbers generated in a way to create a normal distribution with a mean specified and standard deviation specified
 
 # Sample(c("heads","tails"),1) #Uses sample to make a coin flip
+```
+
+## Coin flips
+
+```{r class.source="watch-out"}
+# coinFlipResult = nflip(n=1, prob=5)
+# coinFlipResult = do(10000)*nflip(n=1, prob=0.5) do it 10,000 times and store in coinFlipResult 
+```
+
+## Bootstrapping
+
+```{r class.source="watch-out"}
+# resample(dataset) takes a sample *with replacement - library(mosaic) 
+
+# confint(dataset, level=0.95) a 95% confidence interval *every data point must be a sample to show full info 
+
+# NewDataset = do(#number)*mean(resample(OriginalDataset)) creates a data set of the means of #number samples based on the original data
+# (set must fit mean calculation)
 ```
 
 ***
