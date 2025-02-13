@@ -1987,8 +1987,8 @@ NA:</strong></span></h1>
 <hr />
 </div>
 </div>
-<div id="simulation" class="section level1">
-<h1><span style="color:#CC00FF;"><strong>Simulation:</strong></span></h1>
+<div id="simulationstatistics" class="section level1">
+<h1><span style="color:#CC00FF;"><strong>Simulation/Statistics:</strong></span></h1>
 <div id="random-number-generation" class="section level2">
 <h2>Random number generation</h2>
 <pre class="r watch-out"><code># sample(1:100, 60, replace=TRUE) #Returns random number between 1 and 100 inclusive 60 times, more than 1 times returns a list, replace = TRUE replaces values after sampled
@@ -2008,10 +2008,38 @@ NA:</strong></span></h1>
 <h2>Bootstrapping</h2>
 <pre class="r watch-out"><code># resample(dataset) takes a sample *with replacement - library(mosaic) 
 
-# confint(dataset, level=0.95) a 95% confidence interval *every data point must be a sample to show full info 
 
-# NewDataset = do(#number)*mean(resample(OriginalDataset)) creates a data set of the means of #number samples based on the original data
-# (set must fit mean calculation)</code></pre>
+# confint(dataset, level=0.95) a 95% confidence interval *every data point must be a sample to show full info 
+# How to interpret confidence interval \/
+# I am level % confident that the calculation(such as mean, diffmean, prop, with units) is between the lower bound and upper bound (with units)
+
+
+# NewDataset = do(numSamples))*mean(resample(ogDataColumn)) creates a bootstrapped sampling distribution of the means of ogDataColumn based on ogData with replacement
+# (column must fit mean calculation -numeric)
+
+# NewDataset = do(numSamples)*diffmean(numericVariable ~ categoricalVariale, data=resample(ogData))
+# creates a bootstrapped sampling distribution of the difference of means between the 2 categories (must be 2) based on ogData with replacement
+
+# NewDataset = do(numSamples)*cor(numericColumn1 ~ numericColumn2, data=resample(ogData))
+# creates a bootstrapped sampling distribution of the correlation between 2 numeric columns based on ogData with replacement
+
+# NewDataset = do(numSamples))*prop(resample(ogDataColumn)) 
+# creates a bootstrapped sampling distribution of the prop of ogDataColumn that is TRUE based on ogData with replacement
+# (column must fit prop calculation -boolean)</code></pre>
+</div>
+<div id="chi-squared-statistic" class="section level2">
+<h2>Chi-squared statistic</h2>
+<pre class="r watch-out"><code># Chi-squared statistic
+# Chi-squared = sum((Expected-Observed)^2 / Expected)
+# A lower chi-squared means the less two sets of proportions differ from one another / lower = the more alike
+# Used by comparing the chi-squared of proportion sets to find anomalies
+
+# rmultinom(n(how many samples simulated), size(how many observations), prob(vector of probabilities)) 
+# creates n columns of simulations given probabilities of a multinomial distribution (several terms) each row associated with relative index of probability vector (row1 -&gt; first probabilty in vector)
+
+# test2 = rmultinom(5, 52, c(0.5,0.3,0.1))
+# will output 5 column and 3 row data set with sample statistics based on the probabilty vector
+# (like a vat of m&amp;ns of different colors with their respective proportion and grabing a handful of size 52)</code></pre>
 <hr />
 </div>
 </div>
@@ -2343,7 +2371,7 @@ Essentials:</strong></span></h1>
 #            linetype=2, #type (doted or solid, so on)
 #            color=2) #color
 
-# +geom_hline(yintercept=0, #adds vertical line at Y-intercept (can use vector to add multiple ex -1:1)
+# +geom_hline(yintercept=0, #adds horizontal line at Y-intercept (can use vector to add multiple ex -1:1)
 #            linetype=2, #type (doted or solid,so on)
 #            color=2) #color
 
