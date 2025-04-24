@@ -1,6 +1,6 @@
 ---
 title: "RLibrary"
-author: "SDS 313 UT Austin"
+author: "R UT Austin"
 output:
   html_document: 
     theme: darkly
@@ -30,7 +30,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Packages:**]{style="color:#FF3333;"}
+# [**Packages:**]{style="color:#FFCC00;"}
 
 ```{r class.source="watch-out"}
 # install.packages("bslib") | (adds themes and nice formatting to shiny apps)
@@ -68,6 +68,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # install.packages("tidyverse") | (Includes a variety of packages containing useful functions)
 # library(tidyverse) 
+
+# install.packages("mosaic") | (includes a variety of packages used in statistics calculations such as resampling)
+# library(mosaic)
 ```
 
 * [shiny Cheat Sheet](https://rstudio.github.io/cheatsheets/shiny.pdf)
@@ -93,15 +96,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Environment Management:**]{style="color:#FF3333;"}
+# [**Environment Management:**]{style="color:#FF9900;"}
 
-## Lists objects currently in working memory:
+## Lists objects in working memory:
 
 ```{r class.source="watch-out"}
 # ls()
 ```
 
-## Removes a specified object from environment:
+## Removes object from environment:
 
 ```{r class.source="watch-out"}
 # rm(list='x1') 
@@ -121,7 +124,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Options And Functions:**]{style="color:#FF3333;"}
+# [**Options And Functions:**]{style="color:#FF9900;"}
 
 ## Scientific notaton removed
 
@@ -131,7 +134,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Math Operations:**]{style="color:#FF0066;"}
+# [**Math Operations:**]{style="color:#FF6600;"}
 
 ## Basic math
 
@@ -153,16 +156,17 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Dataset Math
 
 ```{r class.source="watch-out"}
-# max(dataset) maximum
-# min(dataset) minimum
-# sd(dataset)  standard deviation
-# length(dataset) number of values
+# max(dataset) : maximum
+# min(dataset) : minimum
+# sd(dataset)  : standard deviation
+# length(dataset) : number of values
 # table(dataset) 
 # summary(dataset) 
-# fivenum(dataset) min, Q1, median, Q3, max - in that order
-# sum(dataset) sum of all values
-# mean(dataset) mean
-# median(dataset) median
+# fivenum(dataset) : min, Q1, median, Q3, max - in that order
+# sum(dataset) : sum of all values
+# mean(dataset) : mean
+# median(dataset) : median
+# count() : another method of counting besides sum() -dplyr package
 ```
 
 ## Proportions And Correlation
@@ -174,7 +178,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Built In Functions:**]{style="color:#FF0066;"}
+# [**Built In Functions:**]{style="color:#FF6600;"}
 
 ## Rolling dice or flipping a coin
 
@@ -185,7 +189,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Creating Variables:**]{style="color:#FF0066;"}
+# [**Creating Variables:**]{style="color:#FF6600;"}
 
 ## Assigning variables
 
@@ -235,23 +239,96 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Importing And Exporting:**]{style="color:#9966FF;"}
+# [**Replication:**]{style="color:#FF3300;"}
 
-## import/read in a data set
-
-```{r class.source="watch-out"}
-# films <- read.csv('films.csv')
-```
-
-## Exporting data
+## Applying functions over a list
 
 ```{r class.source="watch-out"}
-# write.csv(Rmovies, file = 'R_Films.csv')
+# replicate(n, expression) : Creates a list of values with the expresion applied n times
+
+
+# lapply(X, FUN) : returns a list of the same length as X, each element of which is the result of applying FUN to the corresponding element of X.
+
+
+# sapply(X, FUN,)
+# user-friendly version and wrapper of lapply by default returning a vector, matrix or, if simplify = "array", an array if appropriate, by applying simplify2array(). sapply(x, f, simplify = FALSE, USE.NAMES = FALSE) is the same as lapply(x, f).
 ```
 
 ***
 
-# [**Navigating Datasets:**]{style="color:#9966FF;"}
+# [**Loops:**]{style="color:#FF3300;"}
+
+## Loop Basics
+
+```{r class.source="watch-out"}
+# for (i in 1:n){
+#   print('hellow world!')
+# } 
+# Will print hellow world! n times
+# Represents index but it doesn't need to be i
+# Could use (i:n) or (c(1,2,3,4,5))
+```
+
+## Storing Results From A Loop
+
+```{r class.source="watch-out"}
+# Results = vector(length=10)
+# for (i in 1:10) {
+#   Results[i] = i*2
+# } 
+# Will put i*2 in the i index of Results as the loop changes i
+
+# Results = c() 
+# for (i in 1:10) {
+#   Results = c(Results,i*2)
+# }
+# Results
+# Useful loop structure for vectors with an unknown length
+```
+
+## Loop Errors
+
+```{r class.source="watch-out"}
+# ***Trying to grab from index <= 0 will return and error because no such index exists
+
+# Loops within loops must use different variables for index
+```
+
+***
+
+# [**Conditions:**]{style="color:#FF0066;"}
+
+## If/Else Statements
+
+```{r class.source="watch-out"}
+# if (condition) {
+#   Code
+#   } 
+# Will only run "Code" if condition is true
+
+# if (condition) {
+#   Code1
+#   }
+#   else {
+#     Code2
+#     } 
+# Will run "Code1" if condition is true and will run "Code2" if i condition is false
+
+# if (condition) {
+#   Code
+#   }
+#   else if (condition2) {
+#     Code2
+#   }
+#   else {
+#     Code3    
+#     }
+# Will run "Code1" if condition1 is true and will check condition2 only if condition1 was false. It will then check condition2 like a if statement and proceed from there.
+```
+
+***
+
+# [**Navigating Datasets:**]{style="color:#FF00CC;"}
 
 ## Navigating data
 
@@ -260,7 +337,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # unique(vector) #returns every unique value in vector, can be used for colnames / row values
 ```
 
-## Indexing [row,column] #specify a column by using \$column
+## specifying columns and rows
 
 ```{r class.source="watch-out"}
 # films$Rating[4] 
@@ -268,13 +345,13 @@ knitr::opts_chunk$set(echo = TRUE)
 # films[20,] #return information in entire row
 ```
 
-## Returns Boolean value for each row tested
+## Returns truth value of row
 
 ```{r class.source="watch-out"}
 # films$Rating == 'R'
 ```
 
-## Returns information from each row thats true
+## Returns each row thats true
 
 ```{r class.source="watch-out"}
 # films[films$Rating == 'R',]
@@ -282,7 +359,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Subset/Manipulate Data:**]{style="color:#9966FF;"}
+# [**Subset/Manipulate Data:**]{style="color:#FF00CC;"}
 
 ## Creating Subset
 
@@ -291,7 +368,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # dataset = tibble("header1"=vector1, "header2"=vector2) creates a tibble dataset with headers as column names and values or rows set to vectors given
 ```
 
-## Creating New Variable In This Dataset
+## Creating New Column
 
 ```{r class.source="watch-out"}
 # med <- read.csv('medicaldata.csv') med$overweight <- 1*(med$BMI>=25)
@@ -335,6 +412,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # mutate(dataset,) #changes the dataset in some way
 # select(dataset,) #outputs only the observations mentioned
 # arrange(dataset, (ColumnToArrangeBy)) will sort alphabetically/numerically, Make -(ColumnToArrangeBy) to order descending
+# sample(dataset, replace = FALSE) #replacement is FALSe by default (sample with no replacement)
 
 # Example:
 # dataset = dataset %>%
@@ -349,11 +427,16 @@ knitr::opts_chunk$set(echo = TRUE)
 #   group_by(category) %>%
 #    summarize(avg=mean(total), .groups="drop") #This will do the same but keep all the other columns in the data set
 #                                               which it can keep
+
+# Another Example:
+# dataset = dataset %>%
+#   mutate(column1, sample(column1)) # Shuffles the values in column 1 randomly
+#                                    # Used in randomization tests
 ```
 
 ***
 
-# [**Reshaping Data:**]{style="color:#9966FF;"}
+# [**Reshaping Data:**]{style="color:#FF00CC;"}
 
 ## Lengthening Data
 
@@ -399,177 +482,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Managing NA:**]{style="color:#9966FF;"}
+# [**Simulation/Statistics/Experiments:**]{style="color:#CC33CC;"}
 
-## NA Shenanigans
-
-```{r class.source="watch-out"}
-# is.na() #returns true if its NA
-# na.rm=TRUE #ignors NA values (useful for graphing)
-# na.omit() #removes any rows that contain NAs
-# use="complete.obs" #ignors NA values (useful for calculations)
-# Climate_General = na_replace(dataset, 0) #Replace all NAs in datasetwith 0, 0 can be replaced with any matching type value.
-```
-
-***
-
-# [**Functions:**]{style="color:#9966FF;"}
-
-## Naming and calling functions
-```{r class.source="watch-out"}
-# Function_Name = function(variable=Default, variable, variable){
-#   print()
-#   return()
-#   break() #would break out of the loop
-# }
-
-# Function_Name(variable, variable, variable) #Calling the function
-```
-
-***
-
-# [**Strings:**]{style="color:#9966FF;"}
-
-## Converting to UTF-8 Strings (useful for scrapes)
-
-```{r class.source="watch-out"}
-# Variable/Observation = iconv(Variable/Observation, from="ISO-8859-1", to="UTF-8") #Converts to usable string.
-```
-
-## Navigating Strings
-
-```{r class.source="watch-out"}
-# '' and "" can define strings though "" works with some complex characters when '' does not.
-
-# Including a "\n" moves the string after down a line
-
-# Use cat(string) to print actual text
-
-# Use library(stringr) package for more functions
-
-# str_length(string) #Returns number of characters in string (includes space)
-
-# str_sub(string, First_Index, Last_Index) #Returns string inbetween and including the first and last index inputted (first character is index 1) (negative index counts backward from end)
-
-# str_detect(x, "character/text") #Returns true/false if x contains character/text
-
-# str_count(x, "character/text") #Returns how many times the character or text appears in x
-
-# str_subset(x, "character/text") #Returns all elements of x that have character/text
-
-# str_subset(x, "^character/text") #Returns all elements of x that start with character/text
-
-# str_subset(x, "character/text$") #Returns all elements of x that end with character/text
-
-# str_subset(x, "^element/text$) #Returns only the exact matches of element/text
-
-# str_subset(x, "ti(g|c)") #Returns elements of x with either tig or tic
-
-# str_subset(x, "[abc]") #Returns elements of x with either an a,b, or c
-
-# str_subset(x, "(fox|bear)") #Returns elements of x with either "fox" or "bear"
-```
-
-## Manipulating Strings
-
-```{r class.source="watch-out"}
-# str_to_upper(string) #whole string uppercase
-# str_to_lower(string) #whole string lowercase
-
-# paste("String", "String", numeric, ...) #Combines the items with a space
-# paste0("String", "String", numeric, ...) #Combines the items without a space
-# paste(Split_Lyrics_Data, collapse=" ") #Convert list data into large string
-
-# str_extract(x, "character/text") #Returns just the character/text contained in x (if it doesn't exist it returns NA)
-
-# str_replace_all(x, "character/text1", "character/text2") #Returns elements of x with character/text1 replaced with character/text2
-
-# str_split(x, " ", simplify=TRUE) #Returns a dataset with each element of x in a separate column and the text separated by " " being put into rows of that column. (" " can be replaced with any character like "/" to split dates Y/M/D)
-
-# str_sub_vec = as.vector(x) #Returns a vector of x
-
-#str_wrap("text", width=numericValue) # Will automatically wrap text around onto another line
-#                                     # Width is cutoff number of characters
-#                                     # Often used in plot titles, captions, and other labeling
-```
-
-***
-
-# [**Loops:**]{style="color:#9966FF;"}
-
-## Loop Basics
-
-```{r class.source="watch-out"}
-# for (i in 1:n){
-#   print('hellow world!')
-# } 
-# Will print hellow world! n times
-# Represents index but it doesn't need to be i
-# Could use (i:n) or (c(1,2,3,4,5))
-```
-
-## Storing Results From A Loop
-
-```{r class.source="watch-out"}
-# Results = vector(length=10)
-# for (i in 1:10) {
-#   Results[i] = i*2
-# } 
-# Will put i*2 in the i index of Results as the loop changes i
-
-# Results = c() 
-# for (i in 1:10) {
-#   Results = c(Results,i*2)
-# }
-# Results
-# Useful loop structure for vectors with an unknown length
-```
-
-## Loop Errors
-
-```{r class.source="watch-out"}
-# ***Trying to grab from index <= 0 will return and error because no such index exists
-
-# Loops within loops must use different variables for index
-```
-
-***
-
-# [**Conditions:**]{style="color:#9966FF;"}
-
-## If/Else Statements
-
-```{r class.source="watch-out"}
-# if (condition) {
-#   Code
-#   } 
-# Will only run "Code" if condition is true
-
-# if (condition) {
-#   Code1
-#   }
-#   else {
-#     Code2
-#     } 
-# Will run "Code1" if condition is true and will run "Code2" if i condition is false
-
-# if (condition) {
-#   Code
-#   }
-#   else if (condition2) {
-#     Code2
-#   }
-#   else {
-#     Code3    
-#     }
-# Will run "Code1" if condition1 is true and will check condition2 only if condition1 was false. It will then check condition2 like a if statement and proceed from there.
-```
-
-***
-
-# [**Simulation/Statistics:**]{style="color:#CC00FF;"}
-
-## Random number generation
+## Random Number Generation
 
 ```{r class.source="watch-out"}
 # sample(1:100, 60, replace=TRUE) #Returns random number between 1 and 100 inclusive 60 times, more than 1 times returns a list, replace = TRUE replaces values after sampled
@@ -581,7 +496,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Sample(c("heads","tails"),1) #Uses sample to make a coin flip
 ```
 
-## Coin flips
+## Coin Flips
 
 ```{r class.source="watch-out"}
 # coinFlipResult = nflip(n=1, prob=5)
@@ -594,9 +509,18 @@ knitr::opts_chunk$set(echo = TRUE)
 # resample(dataset) takes a sample *with replacement - library(mosaic) 
 
 
-# confint(dataset, level=0.95) a 95% confidence interval *every data point must be a sample to show full info 
+# confint_object = confint(dataset, level=0.95) a 95% confidence interval *every data point must be a sample to show full info 
 # How to interpret confidence interval \/
 # I am level % confident that the calculation(such as mean, diffmean, prop, with units) is between the lower bound and upper bound (with units)
+
+# Grabing specifics from the confidence interval object
+# confint_object$name       : returns the test ("cor","prop","mean", . . .)
+# confint_object$lower      : returns the lower bound of interval
+# confint_object$upper      : returns the upper bound of interval
+# confint_object$level      : returns the level of confidence ("0.95%")
+# confint_object$method     : returns the method of calculating
+# confint_object$estimate   : retunrns best estimate based on the interval
+
 
 
 # NewDataset = do(numSamples))*mean(resample(ogDataColumn)) creates a bootstrapped sampling distribution of the means of ogDataColumn based on ogData with replacement
@@ -613,20 +537,330 @@ knitr::opts_chunk$set(echo = TRUE)
 # (column must fit prop calculation -boolean)
 ```
 
-## Chi-squared statistic
+## Nifty Mosaic Functions
+
+```{r class.source="watch-out"}
+# prop(value == something) : general format
+# or
+# prop(dataset$column == value) : more specific
+# or
+# prop(resample(dataset$column == value)) : with resamples for bootstrapping
+
+# use as.numeric() to extract the raw number form of the prop() 
+```
+
+## Chi-squared Statistic
 
 ```{r class.source="watch-out"}
 # Chi-squared statistic
 # Chi-squared = sum((Expected-Observed)^2 / Expected)
+# Chi_Squared_Stat = function(Expected, Observed){
+#   sum((Expected-Observed)^2 / Expected)
+# }
 # A lower chi-squared means the less two sets of proportions differ from one another / lower = the more alike
 # Used by comparing the chi-squared of proportion sets to find anomalies
+
 
 # rmultinom(n(how many samples simulated), size(how many observations), prob(vector of probabilities)) 
 # creates n columns of simulations given probabilities of a multinomial distribution (several terms) each row associated with relative index of probability vector (row1 -> first probabilty in vector)
 
+
 # test2 = rmultinom(5, 52, c(0.5,0.3,0.1))
 # will output 5 column and 3 row data set with sample statistics based on the probabilty vector
 # (like a vat of m&ns of different colors with their respective proportion and grabing a handful of size 52)
+```
+
+## Cause And Effect
+
+```{r class.source="watch-out"}
+# D : "treatment"/direct intervention
+# Y(D) : Outcome under the treatment
+
+# Y(1) : Potential outcome if treatment happens
+# Y(0) : Potential outcome if treatment doesn't happen
+
+# Causal effect also known as the treatment effect (TE) is 
+# TE = Y(1) - Y(0)
+# Difference between treatment and control groups
+
+# If null hyothesis is true then 
+# Y(1) - Y(0) = 0
+
+# Counterfactual : an if–then statement about something that has not actually occurred.
+
+# Y(D = 0) = 0 : Counterfactual
+# Y(D = 1) = 1 : Actual
+
+## Blocking : randomize subjects to treatment and control within a bunch of “near-twin” pairs.
+```
+
+## Causal Inference 
+
+```{r class.source="watch-out"}
+# Internal validity: is about causal inference within the study.
+# Framed another way: Internal validity is about generalizing from actual treatment assignments to counterfactual ones for the participants in the study
+
+
+# External validity:The extent to which results from an experiment generalize to other populations, settings, and time periods.
+```
+
+## Threats To External Validity
+
+```{r class.source="watch-out"}
+# Non-representative sample:
+#     If the study participants differ from the broader population, the results may not generalize.
+#     Example: A medical trial using only young adults may not apply to older populations.
+# Artificial setting:
+#     Lab experiments might not capture real-world behavior.
+#     Example: People may act differently in a psychology study than in daily life.
+# Treatment effect heterogeneity:
+#     The effect might be different for different groups (age, income, culture, etc.).
+#     Example: A job training program may work well in urban areas but not in rural ones.
+# Temporal validity:
+#     Will the effect still hold years later?
+#     Example: A policy tested in a recession might not work the same in a boom.
+```
+
+## Natural or Quasi Experiments
+
+```{r class.source="watch-out"}
+# study designs that are like “like an experiment,” but without an actual experimental intervention. 
+# In these studies, units (e.g. people, states, firms) are assigned to the “treatment” and “control” conditions by a mechanism that is:
+#     1. Outside the control of either the investigators or the people actually in the study.
+#     2. Plausibly “resembles a random assignment.” 
+
+
+# Pros:
+#     They ensure balanced characteristics (even those we cannot observe) between treatment and control groups, on average
+#     So they eliminate the possibility of systematic bias due to observed and unobserved confounders (assuming randomization is done properly).
+#     Randomized controlled trials (RCTs) are considered the gold standard of evidence.
+# Cons:
+#     They’re often unfeasible or unethical (seatbelts, parachutes, cigarettes…)\
+#     They often have limited external validity, especially if the sample looks very different from the wider population
+#     They can be very expensive (typical Phase III chemotherapy trial: $300 million)
+#     Compliance issues: “you can lead a horse to water…”
+
+
+# Two methods:
+
+# (1) Discontinuity designs (RD), Regression Discontinuity
+#     Exploits a sharp cutoff (e.g., test scores, income thresholds). Extrapolation comes from: The treated unit’s own pre-treatment trend, assuming continuity. 
+#       Sharp RD: In “sharp” RD designs, treatment status (either 0 or 1) is 100% determined by a. If we know a, we know whether you were “treated.” So treatment is discontinuous: no matter how close you get to the threshold, you aren’t “treated” until you cross it.
+#       Fuzzy RD: A slight variation is "fuzzy RD": Here the probability of being “treated” jumps or ramps up at a threshold. Not truly a “discontinuity,” but we use the term anyway to annoy mathematicians.
+
+# (2) Difference-in-Differences (Diff-in-Diff)
+#     Compares changes over time between a treated group and an untreated control group. Extrapolation comes from: What actually happens in the control group, assuming parallel trends.
+#       The diff-in-diff analysis compares changes rather than levels, thereby controlling for the fact that the two areas were not initially the same. 
+```
+
+## Observational Studies
+
+```{r class.source="watch-out"}
+# a research method that involves observing people or collecting data without intervening or changing their circumstances. 
+
+
+# **Matching**
+# Matching: Compare units that are as similar as possible
+# Matching means constructing a balanced data set from an unbalanced one:
+# Matching is similar in spirit to blocking, but it happens in the analysis phase, in the absence of randomization (rather than prior to randomization for blocking).
+
+# Matching can fail due to unobserved lurking variables
+
+# Matching Pros and Cons.
+# Pros: 
+#   -Its transparent
+#   -easy to understand
+#   -easy to diagnose obvious failures.
+# Cons:
+#   -Can only match what you can observe
+#   -Often leads to wider error bars than fancier, harder-to-understand methods
+
+
+# Types of observational studies
+# Longitudinal versus cross-sectional
+#   Cross-sectional: examine the data on treatment and outcomes at one time point. 
+#   Longitudinal: examine units over time to see temporal ordering of treatment/outcome
+# Prospective versus retrospective
+#   Prospective: sample units and start collecting data as real life happens.
+#   Retrospective: sample units and collect data about their past
+# Cohort versus case-control
+#   Cohort studies: units are sampled by what treatment they experience
+#   Case-control studies: units are sampled by what outcome they experience
+```
+
+## Matching
+
+```{r class.source="watch-out"}
+# install.packages("MatchIt")
+# library(MatchIt)
+
+# Matching one variable (treatment/result) to others
+# newdataset_matched = matchit(
+#                              (treatment/result variable) ~ 
+#                              matchedvar1 +
+#                              factor(matchedvar2) +
+#                              factor(matchedvar3) + ... ,
+#                              data = dataset,
+#                              ratio = numericValue)
+
+# ratio : the number of control units matched to each treated unit
+```
+
+## Study Hierarchy
+
+```{r class.source="watch-out"}
+# Gold
+#   (1) Randomized controlled trials
+# Silver: nearly as good as an RCT
+#   (2) Quasi-experiments (incl. RDD or diff-in-diff) with good randomization mechanisms
+# Bronze. Can be very convincing, but hard to do well
+#   (3) Prospective cohort studies
+# Circumstantial, good for exploration and hypothesis generation; only occasionally good enough to be convicning on their own.
+#   (4) Retrospective cohort studies; case-control studies; quasi-experiments with suspect randomization mechanisms that require further statistical adjustment
+#   (5) Purely cross-sectional studies
+# Suggestive, at best; misleading at worst.
+#   (6) Anecdotes
+```
+
+## Randomization Test
+
+```{r class.source="watch-out"}
+# Monte Carlo Simulation
+
+
+# Key insight : If the null hypothesis is true, then the random assignment to treatment vs. control didn't affect the outcome.
+
+# Permutation test
+# dataset = dataset %>%
+#   mutate(column1, sample(column1)) # Shuffles the values in column 1 randomly
+#                                    # Used in randomization tests
+# Create a samping distribution of multiple of these shuffles then test what values are consistent with the data
+
+# This is different than bootstrapping because its a different perspective but both come to the same conclusion
+# The Permutation test can provide a confidence interval that *is consistent with the data collected.
+
+# Another Explanation:
+# bootstrapping focuses on estimating population parameters by resampling from the original data, while a randomization test focuses on hypothesis testing by randomly re-assigning treatment groups within the data to assess the likelihood of observing the observed effect under the null hypothesis.
+```
+
+## p-value
+
+```{r class.source="watch-out"}
+# Anomaly: An observation, event, or pattern that significantly deviates from what is expected under our existing knowledge or models of the world
+
+# Null hypothesis: The hypothesis that there is no significant difference between specified populations, any observed difference being due to sampling or experimental error.
+
+# Test statistic: A number calculated by a statistical test. It describes how far your observed data is from the null hypothesis of no relationship between variables or no difference among sample groups.
+
+# p-value: A statistical measurement used to validate a hypothesis against observed data. A p-value measures the probability of observing a test statistic at least as extreme as what we observed, just by chance, if the null hypothesis were true.
+
+
+
+# p-value: a proportion of values > a certain value
+# used in chi square distributions
+# p-value = mean(Values >= ObservedValue)
+# p-vale = sum(Values >= ObservedValue) / TotalValues
+# Both formulas work
+```
+
+## Expected values 
+
+```{r class.source="watch-out"}
+# Expected value = weighted average of the possible outcomes
+# Expected value = (outcome1)(probability of outcome1) + (outcome2)(probability of outcome2) . . .
+```
+
+## Poisson Distributions
+
+```{r class.source="watch-out"}
+# The Poisson distribution is a useful parametric model for any situation where we count the number of events that happen over a specific time interval.
+
+# the three key functions to know are:
+#   - rpois: for simulating Poisson outcomes
+#   - dpois: for calculating the probability of specific outcomes
+#   - ppois: for calculating cumulative probabilities for a range of outcomes
+
+# rpois( (N, number of outcomes) , (average rate) ) -> integer outcome * N times (1 0 0 1 1 0) for N=6 rate=1.45
+# dpois( (outcome) , (average rate) ) -> probability of the outcome given the average rate
+# ppois( (outcome) , (average rate) , lower.tail=TRUE) -> P(x <= outcome) (probability that any given outcome is <= outcome)
+# lower.tail=FALSE would mean P(x > outcome) instead
+
+# xtabs(~rpois1 + rpois2) -> returns a contingency table (optionally a sparse matrix) from cross-classifying factors
+
+# sum(rpois1 > rpois2)/(Number of outcomes) -> returns the probability that the outcome of rpois1 is > rpois2
+# sum(rpois1 == rpois2)/(Number of outcomes) -> returns the probability that the outcome of rpois1 is == rpois2
+# sum(rpois1 < rpois12)/(Number of outcomes) -> returns the probability that the outcome of rpois1 is < rpois2
+
+```
+
+## Binomial distributions
+
+```{r class.source="watch-out"}
+# Useful for getting the probability of an event(s) given the population and the expected proportion
+
+# the three key functions to know are:
+#   - rbinom: for simulating binomial outcomes
+#   - dbinom: for calculating the probability of specific outcomes
+#   - pbinom: for calculating cumulative probabilities for a range of outcomes
+
+# rbinom( (N, number of outcomes) , (total that everage rate is based on), (average rate)) -> returns the integer outcome * N times (12 14 8 16 11) for N=5, rate=0.9
+# dbinom( (outcome) , (total that everage rate is based on), (average rate)) -> returns the probability of the outcome given the average rate
+# pbinom( (outcome) , (total that everage rate is based on), (average rate) , lower.tail=TRUE) -> returns the P(x <= outcome) (probability that any given outcome is <= outcome)
+# lower.tail=FALSE would mean P(x > outcome) instead
+```
+
+## Fitting Equations
+
+```{r class.source="watch-out"}
+# Regression_Line = lm(var1 ~ var2, data=Dataset) : creates a regression line based on the relationship between the two variables which in a dataset could be 2 columns
+# var1 is the "y" component while var2 is the "x" component of the linear relationship
+
+# Regression_Line = lm(car1 ~ poly(var2, n), data=dataset) : creates a regression line based on the polynomial relationship between the two variables
+
+# Regression_Line - lm(var1 ~ var2 + var3 + var4:var5, data=Dataset)
+# ~ var2 + var3 : add additional predictors
+# ~ var2 + var3:var4 : add an interaction between two variables
+
+# large sample statistics
+# Regression_Line_Boot = do(num)*lm(var1 ~ var2 + var3 + var4:var5, data=Dataset)
+
+# confint for regression models
+# Regression_Line_Confint = confint(Regression_Line_Boot, level=0.95) : confidence interval for regression model coefficient
+
+# better confint for regression models
+# regression_Table = get_regression_table(regression_Model, conf.level = 0.95, digits=2)
+# include a confidence interval (large sample statistics) or digit manipulation
+
+# coef(Regression_Line)
+## (Intercept) var            : (intercept) is the value at 0 var
+## 207.9306683 -0.6878927     : var is the change for an increment in 1 of var
+
+# + abline(lm(Data$var1 ~ Data$var2) ,col='red') : adds a regression line to a plot based on the relationship between the two variables which in a dataset could be 2 columns
+# var1 is the "y" component while var2 is the "x" component of the linear relationship
+```
+
+## Exponential Models (finish later)
+
+```{r class.source="watch-out"}
+# In an exponential model both the "x" and "y" can be log(base e)(x/y)
+# This would transform the exponential model to a linear one
+```
+
+## Residuals, Correlation, And Variation
+
+```{r class.source="watch-out"}
+# Residual = (Actual value) - (Predicted value)
+
+# correlation coefficient, a value between -1 and 1 that measures the strength and direction of a linear relationship between two variables.  
+
+# rsquared(Regression_Model)
+# R^2 aka coefficient of determination, denoted R2 or r2 and pronounced "R squared", is the proportion of the variation in the dependent variable that is predictable from the independent variable(s)
+```
+
+## ANOVA Table
+
+```{r class.source="watch-out"}
+# eta_squared() : "effectsize" library
 ```
 
 ***
@@ -770,7 +1004,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # input$WidgetName
 ```
 
-## Assigning values for output / syntax for showing output
+## Output syntax
 
 ```{r class.source="watch-out"}
 # mainPanel(
@@ -871,7 +1105,120 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Plotting In Base r:**]{style="color:#3366FF;"}
+# [**Importing And Exporting:**]{style="color:#0033FF;"}
+
+## import/read in a data set
+
+```{r class.source="watch-out"}
+# films <- read.csv('films.csv')
+```
+
+## Exporting data
+
+```{r class.source="watch-out"}
+# write.csv(Rmovies, file = 'R_Films.csv')
+```
+
+***
+
+# [**Managing NA:**]{style="color:#0066FF;"}
+
+## NA and inf Shenanigans
+
+```{r class.source="watch-out"}
+# is.infinite() #returns true if its inf
+# is.na() #returns true if its NA
+# na.rm=TRUE #ignors NA values (useful for graphing)
+# na.omit() #removes any rows that contain NAs
+# use="complete.obs" #ignors NA values (useful for calculations)
+# Climate_General = na_replace(dataset, 0) #Replace all NAs in datasetwith 0, 0 can be replaced with any matching type value.
+```
+
+***
+
+# [**Functions:**]{style="color:#0099FF;"}
+
+## Naming and calling functions
+```{r class.source="watch-out"}
+# Function_Name = function(variable=Default, variable, variable){
+#   print()
+#   return() #ends the function and returns
+#   break() #would break out of the loop
+# }
+
+# val = Function_Name(variable, variable, variable) # Calling the function and setting val to the returned value(s)
+```
+
+***
+
+# [**Strings:**]{style="color:#00CCFF;"}
+
+## Converting to UTF-8 Strings
+
+```{r class.source="watch-out"}
+# Variable/Observation = iconv(Variable/Observation, from="ISO-8859-1", to="UTF-8") #Converts to usable string.
+```
+
+## Navigating Strings
+
+```{r class.source="watch-out"}
+# '' and "" can define strings though "" works with some complex characters when '' does not.
+
+# Including a "\n" moves the string after down a line
+
+# Use cat(string) to print actual text
+
+# Use library(stringr) package for more functions
+
+# str_length(string) #Returns number of characters in string (includes space)
+
+# str_sub(string, First_Index, Last_Index) #Returns string inbetween and including the first and last index inputted (first character is index 1) (negative index counts backward from end)
+
+# str_detect(x, "character/text") #Returns true/false if x contains character/text
+
+# str_count(x, "character/text") #Returns how many times the character or text appears in x
+
+# str_subset(x, "character/text") #Returns all elements of x that have character/text
+
+# str_subset(x, "^character/text") #Returns all elements of x that start with character/text
+
+# str_subset(x, "character/text$") #Returns all elements of x that end with character/text
+
+# str_subset(x, "^element/text$) #Returns only the exact matches of element/text
+
+# str_subset(x, "ti(g|c)") #Returns elements of x with either tig or tic
+
+# str_subset(x, "[abc]") #Returns elements of x with either an a,b, or c
+
+# str_subset(x, "(fox|bear)") #Returns elements of x with either "fox" or "bear"
+```
+
+## Manipulating Strings
+
+```{r class.source="watch-out"}
+# str_to_upper(string) #whole string uppercase
+# str_to_lower(string) #whole string lowercase
+
+# paste("String", "String", numeric, ...) #Combines the items with a space
+# paste0("String", "String", numeric, ...) #Combines the items without a space
+# paste(Split_Lyrics_Data, collapse=" ") #Convert list data into large string
+
+# str_extract(x, "character/text") #Returns just the character/text contained in x (if it doesn't exist it returns NA)
+
+# str_replace_all(x, "character/text1", "character/text2") #Returns elements of x with character/text1 replaced with character/text2
+
+# str_split(x, " ", simplify=TRUE) #Returns a dataset with each element of x in a separate column and the text separated by " " being put into rows of that column. (" " can be replaced with any character like "/" to split dates Y/M/D)
+
+# str_sub_vec = as.vector(x) #Returns a vector of x
+
+#str_wrap("text", width=numericValue) # Will automatically wrap text around onto another line
+#                                     # Width is cutoff number of characters
+#                                     # Often used in plot titles, captions, and other labeling
+```
+
+***
+
+# [**Plotting In Base r:**]{style="color:#00FF99;"}
 
 * [Base R Plots Cheatsheet](https://publish.illinois.edu/johnrgallagher/files/2015/10/BaseGraphicsCheatsheet.pdf)
 
@@ -899,7 +1246,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # theme(legend.position="none") removes lengends
 ```
 
-## Layers (Must run as a group to work)
+## Layer additions
 
 ```{r class.source="watch-out"}
 # birthwt <- read.csv('birthwt.csv')
@@ -918,7 +1265,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # points(SmokeNo$lwt,SmokeNo$bwt,pch=20,col='blue')
 ```
 
-## Creating 2 sets of data and adding the second set of points
+## Adding second set of points
 
 ```{r class.source="watch-out"}
 # plot(birthwt$lwt,birthwt$bwt,main='Mothers Weight and Birthweight',xlab='Mothers Pre-Pregnancy Weight (lbs)',ylab='Birthweight (g)',pch=20)
@@ -933,7 +1280,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Basic Tables:**]{style="color:#3366FF;"}
+# [**Basic Tables:**]{style="color:#00FF99;"}
 
 ## Base r basic table format
 
@@ -948,16 +1295,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Ggplot2 Essentials:**]{style="color:#009999;"}
+# [**Ggplot2 Essentials:**]{style="color:#00FF99;"}
 
-## Chart/graph layers/separation by variable within data set
+## Chart separation by variable
 
 ```{r class.source="watch-out"}
 # plot + facet_grid(ColumnVariable ~ .) #Aligns plots vertically
 # plot + facet_wrap(ColumnVariable) #Aligns plots to fill space
 ```
 
-## Customization features for all graphs
+## Graph Customization addons
 
 ```{r class.source="watch-out"}
 # +labs(title="",subtitle="",caption="",tag="",x="",y="",fill="legendName") #changes default graph text
@@ -997,7 +1344,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # +geom_smooth(formula = y ~ x, method = "lm", se = FALSE, na.rm=TRUE, color="color") adds a line of best fit to the graph (regression line)
 ```
 
-## Customization using theme function
+## Customization using theme
 
 ```{r class.source="watch-out"}
 # element_blank(),element_rect(),element_text(),(.position),(.ticks),(.title),(.text),(.background) can be used widely for any element
@@ -1096,6 +1443,10 @@ knitr::opts_chunk$set(echo = TRUE)
 # geom_point() +
 # scale_size(name="LegendName",range=c(1:10)) #clamps size of points to a specific range (1:10)
 
+# Jitter Chart
+# ggplot(dataset, aes(x=x,y=y),size=size,col=color,alpha=transparencyNumeric) +
+# geom_jitter()
+
 # Area Chart
 # ggplot(dataset, aes(x=x,y=y)) + 
 # geom_area(fill="color",alpha=transparencyNumeric)
@@ -1146,7 +1497,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Rmarkdown:**]{style="color:#009999;"}
+# [**Rmarkdown:**]{style="color:#00FF99;"}
 
 ## File header and formatting
 
@@ -1263,42 +1614,7 @@ text 2
 
 ***
 
-# [**Tidyvers Functions:**]{style="color:#009999;"}
-
-## Combining Datasets
-
-```{r class.source="watch-out"}
-# need to find a commonality between datasets first(the key)
-# left_join() #keeps only observations in fist dataset
-# right_join() #keeps only obeservations in second dataset
-# inner_join() #keeps matching values
-# full_join() #keeps observations from both datasets
-```
-
-## Tibbles better data format
-
-```{r class.source="watch-out"}
-# read_csv() #read in data set as a tibble, use (,show_col_types=FALSE) to suppress text.
-# as_tibble(dataset) #is the dataset as a tibble
-# my_tibble1 <- tibble(x1:5,y=1,z=x+y) #sets my_tibble1 to tibble 
-# mytib <- as_tibble(dataset) #setting as a tibble
-# mydata <- as.data.frame(mytib) #setting as a data frame
-```
-
-## Dplyr manipulating and grabing data
-
-```{r class.source="watch-out"}
-# filter(dataset, observations, ...|...) #outputs dataset with observations 
-# select(dataset, observations) #outputs only the observations mentioned
-# arrange(dataset, observaion) #reorders the observation (desc(observation)) for example
-# mutate(dataset, newColumn = ) #adds columns to existing data
-# used in dataset <- mutate(dataset, newColumn = )
-# transmutate(dataset, newColumn = ) #keeps only the new columns
-```
-
-***
-
-# [**KableExtra Essentials:**]{style="color:#009999;"}
+# [**KableExtra Essentials:**]{style="color:#00FF99;"}
 
 ## Table preset
 
@@ -1357,7 +1673,42 @@ text 2
 
 ***
 
-# [**Date Parsing/Format:**]{style="color:#009900;"}
+# [**Tidyvers Functions:**]{style="color:#00FF33;"}
+
+## Combining Datasets
+
+```{r class.source="watch-out"}
+# need to find a commonality between datasets first(the key)
+# left_join() #keeps only observations in fist dataset
+# right_join() #keeps only obeservations in second dataset
+# inner_join() #keeps matching values
+# full_join() #keeps observations from both datasets
+```
+
+## Tibbles better data format
+
+```{r class.source="watch-out"}
+# read_csv() #read in data set as a tibble, use (,show_col_types=FALSE) to suppress text.
+# as_tibble(dataset) #is the dataset as a tibble
+# my_tibble1 <- tibble(x1:5,y=1,z=x+y) #sets my_tibble1 to tibble 
+# mytib <- as_tibble(dataset) #setting as a tibble
+# mydata <- as.data.frame(mytib) #setting as a data frame
+```
+
+## Dplyr manipulating data
+
+```{r class.source="watch-out"}
+# filter(dataset, observations, ...|...) #outputs dataset with observations 
+# select(dataset, observations) #outputs only the observations mentioned
+# arrange(dataset, observaion) #reorders the observation (desc(observation)) for example
+# mutate(dataset, newColumn = ) #adds columns to existing data
+# used in dataset <- mutate(dataset, newColumn = )
+# transmutate(dataset, newColumn = ) #keeps only the new columns
+```
+
+***
+
+# [**Date Parsing/Format:**]{style="color:#00FF33;"}
 
 ## Date And Time
 
@@ -1408,7 +1759,7 @@ text 2
 # mydates2 - mydates1
 ```
 
-## Need to specific the format when dates are in different formats
+## Need to specify the format
 
 ```{r class.source="watch-out"}
 # as.Date is a Base R function
@@ -1435,7 +1786,7 @@ text 2
 
 ***
 
-# [**Using Color:**]{style="color:#CCFF33;"}
+# [**Using Color:**]{style="color:#33CC00;"}
 
 ## Hexadecimal Examples
 
